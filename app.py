@@ -71,6 +71,11 @@ def edit_post():
     return render_template("edit_post.html")
 
 
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
+
+
 # 404 template error page:
 @app.errorhandler(404)
 def page_not_found(e):

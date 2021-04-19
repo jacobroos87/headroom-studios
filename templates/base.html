@@ -18,7 +18,50 @@
 <body>
 
     <header>
-        
+
+        <!-- top navbar -->
+        <nav class="nav-extended black nav-center">
+            <div class="nav-wrapper">
+                <div class="row center-align">
+                    <a href="{{ url_for('home') }}" class="brand-logo">Headroom Studios</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                </div>
+                <ul class="hide-on-med-and-down">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('rehearsal_studios') }}">Rehearsal Studios</a></li>
+                    <li><a href="{{ url_for('notice_board') }}">Notice Board</a></li>
+                    <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="fas fa-caret-down"></i><i class="fas fa-user-circle"></i></a></li>
+                    <ul id="dropdown1" class="dropdown-content center-align">
+                        <li></li><a href="{{ url_for('bookings') }}">Bookings</a></li>
+                        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                        <li><a href="{{ url_for('add_post') }}">Add Post</a></li>
+                        <li><a href="{{ url_for('admin') }}">Admin</a></li>
+                        <li><a href="#">Log Out</a></li>
+                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- mobile sidenav -->
+        <ul class="sidenav center-align" id="mobile-demo">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('rehearsal_studios') }}">Rehearsal Studios</a></li>
+            <li><a href="{{ url_for('notice_board') }}">Notice Board</a></li>
+            <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="{{ url_for('bookings') }}">Bookings</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('add_post') }}">Add Post</a></li>
+            <li><a href="{{ url_for('admin') }}">Admin</a></li>
+            <li><a href="#">Log Out</a></li>
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
+            <li><a href="#">Register</a></li>
+        </ul>
+
     </header>
 
     <section>

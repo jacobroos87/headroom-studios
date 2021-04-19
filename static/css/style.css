@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Roboto:wght@300&display=swap');
+
+/*------ Site-wide styling -----*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+/*------ Navbar Styling -----*/
+
+.dropdown-trigger:focus {
+outline: none;
+}
+
+nav ul li:hover {
+    background-color: #26a69a !important;
+}
+
+#dropdown1 a {
+    font-size: 14px;
+    color: #fff;
+    width: 100%;
+}
+
+#dropdown1 {
+    background-color: #000;
+}
+
+nav.nav-center ul li a.btn:hover {
+    transition: 0.2s ease-in-out;
+    background: #ffab40 !important;
+}
+
+.nav-center .nav-wrapper li .fas {
+    transform: translateY(3px);
+}
+
+
+.sidenav li:hover {
+    transition: 0.2s ease-in-out;
+    background-color: #26a69a;
+}
+
+.dropdown-trigger .fas{
+    padding: 0 12px;
+    font-size: 20px;
+}
+
+nav.nav-center ul {
+    text-align: center;
+}
+nav.nav-center ul li {
+    display: inline;
+    float: none;
+    padding: 5px 0px;
+    border-radius: 2px;
+}
+nav.nav-center ul li a {
+    display: inline-block;
+}
+
+nav .brand-logo {
+    position: unset;
+    display: unset;
+    font-size: 45px;
+    font-family: 'Bungee', sans-serif;
+    font-weight: 300;
+}

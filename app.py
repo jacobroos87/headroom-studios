@@ -51,6 +51,11 @@ def bookings():
     return render_template("bookings.html")
 
 
+@app.route("/admin")
+def admin():
+    return render_template("admin.html")
+
+
 @app.route("/edit_booking")
 def edit_booking():
     return render_template("edit_booking.html")
@@ -64,11 +69,6 @@ def add_post():
 @app.route("/edit_post")
 def edit_post():
     return render_template("edit_post.html")
-
-
-@app.route("/login")
-def login():
-    return render_template("login.html")
 
 
 # 404 template error page:

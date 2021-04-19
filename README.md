@@ -1,45 +1,41 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Headroom Studios
 
-Welcome jacobroos87,
+## Designed & Developed by Jacob Roos
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+## Code Institute Milestone Project 3
 
-## Gitpod Reminders
+Headroom Studios is a site built for musicians/creatives with an added sense of community. The business provides 3 rehearsal spaces that can be rented in blocks and is supplied with all the essential equipment that would be needed (apart from the instruments).  Bookings can be made/edited on a personal profile page once the user has registered and they're also able to contribute to the noticeboard where users can post items for sale, community events and job listings!  The site was designed with a simple and intuitive layout with a focus on ensuring booking flexibility and user feedback.  A live version of the site is available [HERE](https://jacobroos87.github.io/In-a-Nutshell/).
+) 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# UX
 
-`python3 -m http.server`
+<a name="objectives"></a>
 
-A blue button should appear to click: _Make Public_,
+## Objectives 
 
-Another blue button should appear to click: _Open Browser_.
+* The site should attract the attention of regional musicians looking for a place to rehearse
+* The facilities and ethos needs to be clear and inviting
+* The process to make a booking should be simple and users should be able to check availability
+* The code needs to be scalable and allow for expansion if the business grows
+* Adding a post to the cummunity notice board should be simple and editable
+* The user needs to come away from the site knowing what's on offer and that there is a community spirit
+* The user needs to be able to sign up to a mailing list and also to contact direct for queries
+* Social links and business address needs to be displayed on all pages
+<a name="userstories"></a>
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## User Stories 
 
-A blue button should appear to click: _Make Public_,
+- As a visitor to the site I want to be able to clearly see the purpose of the site and services offered
+- As a visitor I'd like the navigation to be simple and easy to follow
+- As a visitor I want the site to be visually appealing and have a relevant colour scheme 
+- As a visitor I want to be able to see photos of the rehearsal facilities and know their cost per hour
+- As a visitor I would like to be able to connect with the local community
+- As a visitor I would like to be able to make bookings and check availability
+- As a visitor I want to be able to edit my booking 
+- As a visitor I want to be able to post on the notice board and edit that post if required
+- As a visitor I want to have feedback so I know wether my booking or post has been successful
+- As a returning visitor I want to be able to see my active bookings and their relative information
+- As a returning visitor I want to be able to update or remove my post on the community notice board
+<a name="wireframes"></a>
 
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
----
-
-Happy coding!
+# Wireframes:

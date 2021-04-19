@@ -91,3 +91,25 @@ nav .brand-logo {
     font-family: 'Bungee', sans-serif;
     font-weight: 300;
 }
+
+/*------ Hero Img -----*/
+
+.hero-img {
+    position: relative;
+    object-fit: cover;
+    object-position: 0 30%;
+    width: 100%;
+    height: 700px;
+}
+
+@media (max-width: 991px) {
+    .hero-img {
+        height: 600px;
+    }
+}
+
+@media (max-width: 500px) {
+    .hero-img {
+        height: 520px;
+    }
+}

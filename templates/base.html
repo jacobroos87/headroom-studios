@@ -77,6 +77,10 @@
         {% endwith %}
     </section>
 
+    <div id="hero-img-container">
+        <img class="hero-img" src="{{ url_for('static', filename='img/hero.jpg') }}" alt="Recording Studio">
+    </div>
+
     <main>
         {% block content %}
         {% endblock %}

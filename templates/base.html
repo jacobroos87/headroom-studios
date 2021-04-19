@@ -34,7 +34,7 @@
                     <li><a href="#">Contact</a></li>
                     <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="fas fa-caret-down"></i><i class="fas fa-user-circle"></i></a></li>
                     <ul id="dropdown1" class="dropdown-content center-align">
-                        <li></li><a href="{{ url_for('bookings') }}">Bookings</a></li>
+                        <li><a href="{{ url_for('bookings') }}">Bookings</a></li>
                         <li><a href="{{ url_for('profile') }}">Profile</a></li>
                         <li><a href="{{ url_for('add_post') }}">Add Post</a></li>
                         <li><a href="{{ url_for('admin') }}">Admin</a></li>
@@ -59,7 +59,7 @@
             <li><a href="{{ url_for('admin') }}">Admin</a></li>
             <li><a href="#">Log Out</a></li>
             <li><a href="{{ url_for('login') }}">Log In</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="#">Register</a></li> 
         </ul>
 
     </header>

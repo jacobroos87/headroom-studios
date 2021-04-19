@@ -54,6 +54,23 @@ nav.nav-center ul li a.btn:hover {
     font-size: 20px;
 }
 
+.dropdown {
+    float: right;
+}
+
+.nav-wrapper .center-align {
+    margin: 0;
+    padding-top: 10px;
+}
+
+.dropdown-content {
+  top: 100% !important;
+}
+
+.dropdown-content li {
+    text-align: center;
+}
+
 nav.nav-center ul {
     text-align: center;
 }

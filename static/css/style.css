@@ -113,3 +113,34 @@ nav .brand-logo {
         height: 520px;
     }
 }
+
+/*------ Testimonial quotes -----*/
+
+.quotes {
+    position: absolute;
+    color: white;
+    top: 32%;
+    left: 5%;
+    z-index: 10;
+}
+
+@media (max-width: 991px) {
+    .quotes {
+        width: 50%;
+    }
+}
+
+@media (max-width: 500px) {
+    .quotes {
+        width: 90%;
+    }
+}
+
+.quote-list li {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 5px;
+}

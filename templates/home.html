@@ -60,4 +60,45 @@
     </div>
 </div>
 
+<div class="container" id="contact">
+    <h4 class="text-black center align">Contact</h4>
+    <div class="divider"></div>
+    <h6 class="center-align">For any queries please fill out the form below and we'll get back to ASAP.</h6>
+    <div class="row">
+        <form class="col s12" id="contact_form">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" name="first_name" type="text" class="validate" required>
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" name="last_name" type="text" class="validate" required>
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-envelope prefix"></i>
+                    <input id="email_address" name="email_address" type="email" class="validate" required>
+                    <label for="email_address">Email</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix"></i>
+                    <textarea id="message" name="message" class="materialize-textarea" data-length="240" required></textarea>
+                    <label for="message">Message</label>
+                </div>
+            </div>
+            <div class="row center-align">
+                <button class="btn-small waves-effect waves-light" type="submit" name="action">Send
+                    <i class="fas fa-paper-plane right"></i>
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>
+
 {% endblock %}

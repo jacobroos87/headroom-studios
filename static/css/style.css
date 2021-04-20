@@ -215,3 +215,9 @@ footer ul li{
     margin-bottom: 15px !important;
     margin: auto;
 }
+
+/*------ Contact Form -----*/
+
+#contact h6 {
+    font-size: 18px;
+}

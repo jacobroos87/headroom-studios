@@ -31,7 +31,7 @@
                     <li><a href="{{ url_for('rehearsal_studios') }}">Rehearsal Studios</a></li>
                     <li><a href="{{ url_for('notice_board') }}">Notice Board</a></li>
                     <li><a href="{{ url_for('faq') }}">FAQ</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{{ url_for('home', _anchor='contact_form') }}">Contact</a></li>
                     <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="fas fa-caret-down"></i><i class="fas fa-user-circle"></i></a></li>
                     <ul id="dropdown1" class="dropdown-content center-align">
                         <li><a href="{{ url_for('bookings') }}">Bookings</a></li>
@@ -52,7 +52,7 @@
             <li><a href="{{ url_for('rehearsal_studios') }}">Rehearsal Studios</a></li>
             <li><a href="{{ url_for('notice_board') }}">Notice Board</a></li>
             <li><a href="{{ url_for('faq') }}">FAQ</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="{{ url_for('home', _anchor='contact_form') }}">Contact</a></li>
             <li><a href="{{ url_for('bookings') }}">Bookings</a></li>
             <li><a href="{{ url_for('profile') }}">Profile</a></li>
             <li><a href="{{ url_for('add_post') }}">Add Post</a></li>

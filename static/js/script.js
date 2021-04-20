@@ -2,6 +2,7 @@ $(document).ready(function () {
     $('.sidenav').sidenav({ edge: "right" });
     $(".dropdown-trigger").dropdown();
     $('.modal').modal();
+    $('.collapsible').collapsible();
     $('.quote-list > li:gt(0)').hide();
     setInterval(function() {
         $('.quote-list > li:first')

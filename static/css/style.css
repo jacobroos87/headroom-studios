@@ -243,3 +243,22 @@ footer ul li{
 .modal .modal-content {
     padding-bottom: 0px;
 }
+
+/*------ FAQ Page -----*/
+
+.collapsible-body {
+    border-bottom: 0px;
+}
+
+.collapsible-header i {
+    font-size: 16px;
+    margin: 0;
+    margin-top: 3px;
+}
+.collapsible-header {
+    display: block;
+}
+
+ul.collapsible {
+    margin: 30px 0px;
+}

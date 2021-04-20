@@ -153,3 +153,8 @@ footer ul li{
   margin-right: 10px;
   margin-left: 5px;
 }
+
+.social-links li i:hover {
+    transition: 0.2s ease-in-out;
+    color: #26a69a;
+}

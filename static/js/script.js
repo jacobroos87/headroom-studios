@@ -1,6 +1,7 @@
 $(document).ready(function () {
     $('.sidenav').sidenav({ edge: "right" });
     $(".dropdown-trigger").dropdown();
+    $('.modal').modal();
     $('.quote-list > li:gt(0)').hide();
     setInterval(function() {
         $('.quote-list > li:first')
@@ -11,4 +12,23 @@ $(document).ready(function () {
         .end()
         .appendTo('.quote-list');
         },  7000);
+    // Initialisation for email.js
+
+    (function () {
+        emailjs.init("user_5OGKjNpFoPyKDbBVzTMSw");
+    })();
+
+    $(document).on('submit', '#contact_form', function (event) {
+        event.preventDefault();
+        emailjs.sendForm('service_34hzmeb', 'contact_form', '#contact_form')
+            .then(function () {
+                $("#modal2").modal("open");
+                $("#contact_form")[0].reset();
+                console.log("Form Submission SUCCESS");
+            }, function (error) {
+                $("#modal3").modal("open");
+                $("#contact_form")[0].reset();
+                console.log("Form Submission FAILED", error);
+            });
+    });
 });

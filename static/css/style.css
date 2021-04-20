@@ -221,3 +221,25 @@ footer ul li{
 #contact h6 {
     font-size: 18px;
 }
+
+/*------ Contact Form Modal -----*/
+
+.modal {
+    width: 65%;
+}
+
+@media (min-width: 991px) {
+    .modal {
+    width: 50%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .modal {
+    width: 40%;
+    }
+}
+
+.modal .modal-content {
+    padding-bottom: 0px;
+}

@@ -1,6 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- Contact form successful submission modal -->
+
+<!-- Modal Structure -->
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <h4>Thank You!</h4>
+        <p>Your contact form submission was a SUCCESS</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
+<!-- Contact form submission error modal -->
+
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <h4>Error...</h4>
+        <p>Unfortunately there has been an error with your submission! Please try again later.</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
 <div class="container">
     <h4 class="center align">Welcome!</h4>
     <div class="divider"></div>

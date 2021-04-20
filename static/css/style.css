@@ -144,3 +144,12 @@ nav .brand-logo {
     padding-right: 20px;
     border-radius: 5px;
 }
+
+/*------ Footer -----*/
+
+footer ul li{
+  display: inline;
+  font-size: 35px;
+  margin-right: 10px;
+  margin-left: 5px;
+}

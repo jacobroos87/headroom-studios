@@ -76,6 +76,31 @@ def profile():
     return render_template("profile.html")
 
 
+@app.route("/call_modal", methods=["GET", "POST"])
+def call_modal():
+    if request.method == "POST":
+        # check if username already exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("home"))
+
+        register = {
+            "username": request.form.get("username").lower(),
+            "email": request.form.get("email").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(register)
+
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successful!")
+        return redirect(url_for("profile", username=session["user"]))
+    return render_template(url_for('home'))
+
+
 # 404 template error page:
 @app.errorhandler(404)
 def page_not_found(e):

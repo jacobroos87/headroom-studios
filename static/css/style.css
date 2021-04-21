@@ -328,3 +328,32 @@ ul.collapsible {
     margin: 0;
     cursor: pointer;
 }
+
+/*------ Notice Board -----*/
+
+.collection .collection-item.avatar p {
+    margin: 25px 0px;
+}
+
+.collection-item .title {
+    width: 80%;
+    display: inline-block;
+}
+
+.collection .avatar .btn-small {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    line-height: 25px;
+}
+
+.fa-exclamation-circle:before {
+    color: #ffab40;
+    margin-bottom: 10px;
+}
+
+.user-post {
+    font-style: italic;
+    font-size: 14px;
+    background-color: #dbdbdb;
+}

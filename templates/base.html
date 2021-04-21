@@ -82,7 +82,7 @@
                         <li><a href="{{ url_for('profile') }}">Profile</a></li>
                         <li><a href="{{ url_for('add_post') }}">Add Post</a></li>
                         <li><a href="{{ url_for('admin') }}">Admin</a></li>
-                        <li><a href="#">Log Out</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
                         <li><a class="modal-trigger" href="#modal1">Register</a></li>
                     </ul>
@@ -101,7 +101,7 @@
             <li><a href="{{ url_for('profile') }}">Profile</a></li>
             <li><a href="{{ url_for('add_post') }}">Add Post</a></li>
             <li><a href="{{ url_for('admin') }}">Admin</a></li>
-            <li><a href="#">Log Out</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a class="modal-trigger" href="#modal1">Register</a></li>
         </ul>

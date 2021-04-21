@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import timedelta, date
 if os.path.exists("env.py"):
     import env
 
@@ -18,6 +19,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 
 mongo = PyMongo(app)
+today = date.today().strftime('%d/%m/%Y')
 
 
 @app.route("/")
@@ -41,8 +43,36 @@ def faq():
     return render_template("faq.html")
 
 
-@app.route("/login")
+@app.route("/login/", methods=["GET", "POST"])
 def login():
+
+    today = date.today().strftime('%b %d/%Y')
+    if request.method == "POST":
+        # check if username exists in DB
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+
+            # ensure hashed password matches user input
+            if check_password_hash(
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username").capitalize()))
+                session.permanent = True
+                return redirect(url_for(
+                    "profile", username=session["user"], today=today))
+            else:
+                # invalid password match
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login", today=today))
+
+        else:
+            # username doesn't exist
+            flash("Incorrect username and/or Password")
+            return redirect(url_for("login", today=today))
+
     return render_template("login.html")
 
 

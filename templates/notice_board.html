@@ -16,4 +16,41 @@
         you're looking for!</p>
 </div>
 
+{% if posts|length > 0 %}
+<div class="container">
+
+    <ul class="collection">
+        {% for post in posts %}
+        <li class="collection-item avatar">
+            {% if post.category == 'for-sale' %}
+            <i class="fas fa-pound-sign circle"></i>
+            {% elif post.category == 'jobs' %}
+            <i class="fas fa-briefcase circle"></i>
+            {% else %}
+            <i class="fas fa-users circle"></i>
+            {% endif %}
+            <span class="title">{{ post.post_title }}</span><br><span class="user-post">Posted by:
+                {{ post.created_by|capitalize }}</span><br><span class="user-post">Date:
+                {{ post.date_posted }}</span>
+            {% if post.is_urgent == "on" %}
+            <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped" data-position="right"
+                data-tooltip="URGENT!"></i>
+            {% endif %}
+            <p>{{  post.post_message }}</p>
+            <a class="btn-floating btn waves-effect waves-light secondary-content" href="#"><i
+                    class="fas fa-envelope"></i></a>
+            {% if session.user|lower == post.created_by|lower %}
+            <a href="#"><i class="fas btn-small fa-edit" title="Edit"></i></a>
+            <a href="#"><i class="fas btn-small fa-trash-alt"
+                    title="Delete"></i></a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h3 class="red-text text-darken-4 center align">No Posts Found</h3>
+</div>
+
+{% endif %}
+
 {% endblock %}

@@ -35,7 +35,10 @@ def rehearsal_studios():
 
 @app.route("/notice_board")
 def notice_board():
-    return render_template("notice_board.html")
+    posts = list(mongo.db.posts.find().sort([("_id", -1)]))
+    return render_template(
+        "notice_board.html", posts=posts)
+
 
 
 @app.route("/faq")

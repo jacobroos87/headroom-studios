@@ -5,6 +5,7 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
     $('.datepicker').datepicker();
     $('select').formSelect();
+    $("select[required]").css({display: "block", height: 0, padding: 0, width: 0, position: 'absolute'});
     setTimeout(function() {
     $('#flash-message').fadeOut('slow');
     }, 10000);

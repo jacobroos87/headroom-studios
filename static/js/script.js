@@ -5,6 +5,9 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
     $('.datepicker').datepicker();
     $('select').formSelect();
+    setTimeout(function() {
+    $('#flash-message').fadeOut('slow');
+    }, 10000);
     $('.quote-list > li:gt(0)').hide();
     setInterval(function() {
         $('.quote-list > li:first')

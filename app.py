@@ -51,6 +51,61 @@ def bookings():
     return render_template("bookings.html")
 
 
+@app.route("/check_availability", methods=["GET", "POST"])
+def check_availability():
+    if request.method == "POST":
+        # check if booking already exists in db
+        date = request.form.get("date")
+        slot = request.form.get("slot")
+
+        # find appropriate studios
+        studios = list(mongo.db.bookings.find({"date": date, "slot": slot}))
+
+        # set default variables
+        studio_one = studio_two = studio_three = ""
+
+        # define each studio
+        for studio in studios:
+            if studio["studio"] == "1":
+                studio_one = studio
+            if studio["studio"] == "2":
+                studio_two = studio
+            if studio["studio"] == "3":
+                studio_three = studio
+        # check availability
+        available_studios = ""
+        if studio_one and not studio_two and not studio_three:
+            available_studios = "2 & 3 are"
+        elif studio_two and not studio_one and not studio_three:
+            available_studios = "1 & 3 are"
+        elif studio_three and not studio_one and not studio_two:
+            available_studios = "1 & 2 are"
+        elif studio_one and studio_two and not studio_three:
+            available_studios = "3 is"
+        elif studio_one and studio_three and not studio_two:
+            available_studios = "2 is"
+        elif studio_two and studio_three and not studio_one:
+            available_studios = "1 is"
+        elif studio_one and studio_two and studio_three:
+            available_studios = "none"
+        else:
+            available_studios = "all"
+        # flash messages
+        if available_studios == "none":
+            flash(
+                f"All of our studios are fully booked on\
+                    {date} for the {slot} slot")
+        elif available_studios == "all":
+            flash(
+                f"Currently all three studios are available on\
+                    {date} in the {slot}")
+        else:
+            flash(
+                f"Studio {available_studios} currently available on\
+                    {date} in the {slot}")
+    return redirect(url_for("bookings"))
+
+
 @app.route("/admin")
 def admin():
     return render_template("admin.html")

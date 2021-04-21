@@ -20,8 +20,6 @@
         {% for booking in bookings|sort(attribute='date') %}
         {% if session.user|lower == booking.created_by|lower %}
         <div class="card small col l4 m6 s12">
-            
-
             <div class="card-content">
                 <a href="#"><i class="fas fa-trash-alt right" title="Delete"></i></a>
                 <a href="#"><i class="fas fa-edit right" title="Edit"></i></a>
@@ -47,7 +45,6 @@
                     <li class="tab">{{ booking.slot }}</li>
                 </ul>
             </div>
-
         </div>
         {% endif %}
         {% endfor %}

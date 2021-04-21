@@ -280,3 +280,51 @@ ul.collapsible {
 .booking-heading {
     margin-top: 0;
 }
+
+/*------ Profile Page -----*/
+
+.card-content .divider {
+    width: 100% !important;
+}
+
+.card {
+    margin: 10px 0;
+}
+
+.card .card-content {
+    padding: 5px;
+}
+
+.card .card-content p {
+    padding: 0 10px
+}
+
+.details {
+    margin-bottom: 10px;
+}
+
+.tabs .tab {
+    width: 40px;
+    margin: 0 8px;
+}
+
+.card-tabs .tabs {
+    background-color: #26a69a;
+    position: absolute;
+    bottom: 53px;
+    left: 0;
+}
+
+.card-content .tabs {
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+}
+
+.card-content i {
+    color: #26a69a;
+    font-size: 20px;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+}

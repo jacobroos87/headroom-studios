@@ -3,6 +3,8 @@ $(document).ready(function () {
     $(".dropdown-trigger").dropdown();
     $('.modal').modal();
     $('.collapsible').collapsible();
+    $('.datepicker').datepicker();
+    $('select').formSelect();
     $('.quote-list > li:gt(0)').hide();
     setInterval(function() {
         $('.quote-list > li:first')

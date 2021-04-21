@@ -6,12 +6,20 @@ html {
     scroll-behavior: smooth;
 }
 
+main {
+    flex: 1 0 auto;
+}
+
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+}
+
+h3 {
+    margin: 25px 0;
 }
 
 h4 {
@@ -261,4 +269,14 @@ footer ul li{
 
 ul.collapsible {
     margin: 30px 0px;
+}
+
+/*------ Bookings Page -----*/
+
+.booking-blurb {
+    margin: 25px 50px;
+}
+
+.booking-heading {
+    margin-top: 0;
 }

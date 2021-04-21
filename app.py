@@ -106,6 +106,30 @@ def check_availability():
     return redirect(url_for("bookings"))
 
 
+@app.route("/new_booking", methods=["GET", "POST"])
+def new_booking():
+    if request.method == "POST":
+        existing_booking = mongo.db.bookings.find_one(
+            {"studio": request.form.get("studio"), "date": request.form.get(
+                "booking-date"), "slot": request.form.get("time-slot")})
+        if existing_booking:
+            flash("Booking unsuccessful check availability before booking")
+            return redirect(url_for("bookings"))
+        booking = {
+            "studio": request.form.get("studio"),
+            "date": request.form.get("booking-date"),
+            "slot": request.form.get("time-slot"),
+            "contact_name": request.form.get("contact_name"),
+            "additional_info": request.form.get("additional_info"),
+            "created_by": session["user"]
+        }
+        mongo.db.bookings.insert_one(booking)
+        flash("Booking Successful")
+        return redirect(url_for("profile", username=session["user"]))
+
+    return render_template("bookings.html")
+
+
 @app.route("/admin")
 def admin():
     return render_template("admin.html")

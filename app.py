@@ -188,9 +188,17 @@ def edit_post():
     return render_template("edit_post.html")
 
 
-@app.route("/profile")
-def profile():
-    return render_template("profile.html")
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    # grab session user's username from the database
+    today = date.today().strftime('%b %d/%Y')
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    bookings = list(mongo.db.bookings.find())
+    if session["user"]:
+        return render_template(
+            "profile.html", username=username, bookings=bookings, today=today)
+    return redirect(url_for("login"))
 
 
 @app.route("/call_modal", methods=["GET", "POST"])

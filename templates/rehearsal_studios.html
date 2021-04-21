@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h4>Rehearsal Studios</h4>
+<h4 class="black-text center align">Rehearsal Studios</h4>
+<div class="divider"></div>
+
+<div class="container">
+    <div class="row center">
+        <p>If you would like to make a booking in one of our studios then head over to our 
+            <a href="#modal1" class="modal-trigger">Registration Form</a>.<br>
+            Create an account and then head over to the bookings tab in your user options!<br>
+            Any bookings you make will be viewable on your profile page and don't forget to check out<br>
+        our <a href="{{ url_for('notice_board') }}">Notice Board</a> for local events, gear for sale and job listings.</p>
+    </div>
+</div>
 
 {% endblock %}

@@ -229,8 +229,24 @@ def edit_booking():
     return render_template("edit_booking.html")
 
 
-@app.route("/add_post")
+@app.route("/add_post", methods=["GET", "POST"])
 def add_post():
+    if request.method == "POST":
+        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        post = {
+            "post_title": request.form.get("post_title"),
+            "post_message": request.form.get("post_message"),
+            "is_urgent": is_urgent,
+            "category": request.form.get("category"),
+            "created_by": session["user"],
+            "email": request.form.get("email"),
+            "date_posted": str(today)
+
+        }
+        mongo.db.posts.insert_one(post)
+        flash("Post Successfully Added")
+        return redirect(url_for("notice_board"))
+
     return render_template("add_post.html")
 
 

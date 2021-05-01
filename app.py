@@ -36,8 +36,56 @@ def rehearsal_studios():
 @app.route("/notice_board")
 def notice_board():
     posts = list(mongo.db.posts.find().sort([("_id", -1)]))
+    page = request.args.get("page")
+    # Pagination
+    if page is not None:
+        current_page = int(page)
+    else:
+        current_page = 1
+
+    # Pagination Variables
+    number_per_page = 6
+    number_of_pages = round(len(posts) / number_per_page)
+    if number_of_pages < 1:
+        number_of_pages = 1
+
+    begin = (current_page - 1) * number_per_page
+    end = begin + number_per_page
+    posts = posts[begin:end]
+
     return render_template(
-        "notice_board.html", posts=posts)
+        "notice_board.html", posts=posts,
+        current_page=current_page, number_of_pages=number_of_pages)
+
+
+# Next Page
+@app.route("/next_page/<current_page>", methods=["GET", "POST"])
+def next_page(current_page):
+    """next_page:
+    * This function redirects to recipes the function,
+    with an updated page argument variable
+    """
+    if current_page == (request.args.get("number_of_pages")):
+        page = current_page
+        return redirect(url_for('notice_board', page=page))
+    else:
+        page = int(current_page) + 1
+        return redirect(url_for('notice_board', page=page))
+
+
+# Previous Page
+@app.route("/prev_page/<current_page>", methods=["GET", "POST"])
+def prev_page(current_page):
+    """previous_page:
+    * This function redirects to the recipes function,
+    with an updated page argument variable
+    """
+    if int(current_page) == 1:
+        return redirect(url_for('notice_board', page=None))
+    else:
+        page = int(current_page) - 1
+        return redirect(url_for('notice_board', page=page))
+
 
 
 

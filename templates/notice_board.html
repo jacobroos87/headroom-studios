@@ -37,7 +37,7 @@
                 data-tooltip="URGENT!"></i>
             {% endif %}
             <p>{{  post.post_message }}</p>
-            <a class="btn-floating btn waves-effect waves-light secondary-content" href="#"><i
+            <a class="btn-floating btn waves-effect waves-light secondary-content" href="mailto:{{ post.email }}"><i
                     class="fas fa-envelope"></i></a>
             {% if session.user|lower == post.created_by|lower %}
             <a href="#"><i class="fas btn-small fa-edit" title="Edit"></i></a>
@@ -52,5 +52,15 @@
 </div>
 
 {% endif %}
+
+<div class="container">
+    <div class="row center-align">
+        <div class="pagination">
+            <a href="{{ url_for('prev_page', current_page=current_page) }}"><i class="fas fa-chevron-left z-depth-1"></i></a>
+            <p>{{ current_page }} of {{ number_of_pages }}</p>
+            <a href="{{ url_for('next_page', current_page=current_page, number_of_pages=number_of_pages) }}"><i class="fas fa-chevron-right z-depth-1"></i></a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

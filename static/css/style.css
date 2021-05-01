@@ -357,3 +357,25 @@ ul.collapsible {
     font-size: 14px;
     background-color: #dbdbdb;
 }
+
+.pagination i {
+    font-size: 20px;
+    padding: 4px 3px;
+    display: inline;
+    color: #ffab40;
+    height: 25px;
+    width: 45px;
+    border-radius: 3px;
+}
+
+.pagination p {
+    font-size: 18px;
+    display: inline;
+    padding: 0 10px;
+}
+
+/*------ Add post -----*/
+
+div.switch {
+    margin-top: 8px;
+}

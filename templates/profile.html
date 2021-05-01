@@ -22,7 +22,7 @@
         <div class="card small col l4 m6 s12">
             <div class="card-content">
                 <a href="#"><i class="fas fa-trash-alt right" title="Delete"></i></a>
-                <a href="#"><i class="fas fa-edit right" title="Edit"></i></a>
+                <a href="{{ url_for('edit_booking', booking_id=booking._id)}}"><i class="fas fa-edit right" title="Edit"></i></a>
                 <h6>{{ booking.contact_name }}</h6>
                 <div class="divider"></div>
                 <p class="scroll">{{ booking.additional_info }}</p>
@@ -52,5 +52,4 @@
 </div>
 
 {% endif %}
-
 {% endblock %}

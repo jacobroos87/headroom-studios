@@ -224,9 +224,32 @@ def admin():
     return render_template("admin.html")
 
 
-@app.route("/edit_booking")
-def edit_booking():
-    return render_template("edit_booking.html")
+@app.route("/edit_booking/<booking_id>", methods=["GET", "POST"])
+def edit_booking(booking_id):
+    if request.method == "POST":
+
+        existing_booking = mongo.db.bookings.find_one(
+            {"studio": request.form.get("studio"), "date": request.form.get(
+                "booking-date"), "slot": request.form.get("time-slot")})
+
+        if existing_booking:
+            flash("Update unsuccessful check availability before booking")
+            return redirect(url_for("bookings"))
+
+        submit = {
+            "studio": request.form.get("studio"),
+            "date": request.form.get("booking-date"),
+            "slot": request.form.get("time-slot"),
+            "contact_name": request.form.get("contact_name"),
+            "additional_info": request.form.get("additional_info"),
+            "created_by": session["user"]
+        }
+        mongo.db.bookings.update({"_id": ObjectId(booking_id)}, submit)
+        flash("Booking Successfully Updated")
+        return redirect(url_for("profile", username=session["user"]))
+
+    booking = mongo.db.bookings.find_one({"_id": ObjectId(booking_id)})
+    return render_template("edit_booking.html", booking=booking)
 
 
 @app.route("/add_post", methods=["GET", "POST"])

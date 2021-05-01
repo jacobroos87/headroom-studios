@@ -219,9 +219,16 @@ def new_booking():
     return render_template("bookings.html")
 
 
-@app.route("/admin")
-def admin():
-    return render_template("admin.html")
+@app.route("/admin/<username>", methods=["GET", "POST"])
+def admin(username):
+    today = date.today().strftime('%b %d/%Y')
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    bookings = list(mongo.db.bookings.find())
+    if session["user"]:
+        return render_template(
+            "admin.html", username=username,
+            bookings=bookings, today=today)
 
 
 @app.route("/edit_booking/<booking_id>", methods=["GET", "POST"])

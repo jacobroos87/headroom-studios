@@ -1,6 +1,83 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h4>Add Post</h4>
+<h4 class="center align">Add Post</h4>
+<div class="divider"></div>
+
+<div class="container">
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12">
+
+            <!-- Post Category -->
+            <div class="row">
+                <div class="input-field col s12 center-align">
+                    <h6>Category:</h6>
+                    <p>
+                        <label for="jobs">
+                            <input id="jobs" value="jobs" name="category" type="radio" checked />
+                            <span>Jobs</span>
+                        </label>
+                        <label for="for-sale">
+                            <input id="for-sale" value="for-sale" name="category" type="radio" />
+                            <span>For Sale</span>
+                        </label>
+                        <label for="community">
+                            <input id="community" value="community" name="category" type="radio" />
+                            <span>Community</span>
+                        </label>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Post Title -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix"></i>
+                    <input id="post_title" type="text" name="post_title" minlength="5" maxlength="50" class="validate"
+                        required>
+                    <label for="post_title">Post Title</label>
+                </div>
+            </div>
+            <!-- Post Message -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix"></i>
+                    <textarea id="post_message" name="post_message" minlength="5" maxlength="500"
+                        class="materialize-textarea validate" required></textarea>
+                    <label for="post_message">Message</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-envelope prefix"></i>
+                    <input id="email" name="email" type="email" class="validate" required>
+                    <label for="email">Contact Email</label>
+                </div>
+            </div>
+            <!-- is urgent -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <!-- Switch -->
+                    <div class="switch">
+                        <i class="fas fa-exclamation-circle prefix"></i>
+                        <label for="is_urgent">
+                            <input type="checkbox" id="is_urgent" name="is_urgent">
+                            <span class="lever"></span>
+                            Is Urgent
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn text-shadow">
+                        Add Post <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 {% endblock %}

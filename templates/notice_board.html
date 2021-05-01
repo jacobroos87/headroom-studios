@@ -40,7 +40,7 @@
             <a class="btn-floating btn waves-effect waves-light secondary-content" href="mailto:{{ post.email }}"><i
                     class="fas fa-envelope"></i></a>
             {% if session.user|lower == post.created_by|lower %}
-            <a href="#"><i class="fas btn-small fa-edit" title="Edit"></i></a>
+            <a href="{{ url_for('edit_post', post_id=post._id)}}"><i class="fas btn-small fa-edit" title="Edit"></i></a>
             <a href="#"><i class="fas btn-small fa-trash-alt"
                     title="Delete"></i></a>
             {% endif %}

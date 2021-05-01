@@ -273,9 +273,25 @@ def add_post():
     return render_template("add_post.html")
 
 
-@app.route("/edit_post")
-def edit_post():
-    return render_template("edit_post.html")
+@app.route("/edit_post/<post_id>", methods=["GET", "POST"])
+def edit_post(post_id):
+    if request.method == "POST":
+        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        submit = {
+            "post_title": request.form.get("post_title"),
+            "post_message": request.form.get("post_message"),
+            "category": request.form.get("category"),
+            "is_urgent": is_urgent,
+            "created_by": session["user"],
+            "email": request.form.get("email"),
+            "date_posted": str(today)
+        }
+        mongo.db.posts.update({"_id": ObjectId(post_id)}, submit)
+        flash("Post Successfully Updated")
+        return redirect(url_for("notice_board"))
+
+    post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
+    return render_template("edit_post.html", post=post)
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])

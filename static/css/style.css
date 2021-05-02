@@ -252,6 +252,49 @@ footer ul li{
     padding-bottom: 0px;
 }
 
+/*------ Rehearsal Studios -----*/
+
+.right-arrow {
+    height: 24px !important;
+    cursor: pointer;
+}
+
+.left-arrow {
+    height: 24px !important;
+    cursor: pointer;
+}
+
+.slider .indicators .indicator-item {
+    display: none;
+}
+
+.space {
+    margin-bottom:  30px;
+    margin-top: 20px;
+}
+
+.image-nav {
+    z-index: 5000;
+    top: 50%;
+}
+
+.image-nav .fas {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.price {
+    color: white;
+    background-color: #26a69a;
+    padding: 1px 3px;
+    border-radius: 2px;
+}
+
+.card .card-image .card-title {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
 /*------ FAQ Page -----*/
 
 .collapsible-body {

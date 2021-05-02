@@ -7,6 +7,12 @@ $(document).ready(function () {
     $('select').formSelect();
     $('.slider').slider({ activeIndex: 1 }, 'pause');
     $('.slider').slider('pause');
+    $('.left-arrow').on('click', function() {
+        $('.slider').slider('prev')
+    });
+    $('.right-arrow').on('click', function() {
+        $('.slider').slider('next')
+    });
     $("select[required]").css({display: "block", height: 0, padding: 0, width: 0, position: 'absolute'});
     setTimeout(function() {
     $('#flash-message').fadeOut('slow');

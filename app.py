@@ -61,10 +61,6 @@ def notice_board():
 # Next Page
 @app.route("/next_page/<current_page>", methods=["GET", "POST"])
 def next_page(current_page):
-    """next_page:
-    * This function redirects to recipes the function,
-    with an updated page argument variable
-    """
     if current_page == (request.args.get("number_of_pages")):
         page = current_page
         return redirect(url_for('notice_board', page=page))
@@ -76,10 +72,6 @@ def next_page(current_page):
 # Previous Page
 @app.route("/prev_page/<current_page>", methods=["GET", "POST"])
 def prev_page(current_page):
-    """previous_page:
-    * This function redirects to the recipes function,
-    with an updated page argument variable
-    """
     if int(current_page) == 1:
         return redirect(url_for('notice_board', page=None))
     else:
@@ -300,6 +292,14 @@ def edit_post(post_id):
     post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
     return render_template("edit_post.html", post=post)
 
+
+@app.route("/delete_post/<post_id>", methods=["POST"])
+def delete_post(post_id):
+    post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
+    mongo.db.posts.remove({"_id": ObjectId(post_id)})
+    flash("Post successfully deleted")
+    return redirect(url_for("notice_board"))
+ 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):

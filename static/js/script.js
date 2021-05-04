@@ -3,7 +3,9 @@ $(document).ready(function () {
     $(".dropdown-trigger").dropdown();
     $('.modal').modal();
     $('.collapsible').collapsible();
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+        minDate: new Date(),
+    });
     $('select').formSelect();
     $('.slider').slider({ activeIndex: 1 }, 'pause');
     $('.slider').slider('pause');

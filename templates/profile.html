@@ -53,9 +53,9 @@
                 <div class="card-content details">
                     <ul class="tabs tabs-fixed-width grey lighten-4">
                         {% if booking.date < today %}
-                            <li class="tab out-of-date">{{ booking.date.strftime('%b %d, %Y') }}</li>
+                            <li class="tab out-of-date">{{ booking.date.strftime('%d %b %Y') }}</li>
                         {% else %}
-                            <li class="tab">{{ booking.date.strftime('%b %d, %Y') }}</li>
+                            <li class="tab">{{ booking.date.strftime('%d %b %Y') }}</li>
                         {% endif %}
                         <li class="tab">{{ booking.studio }}</li>
                         <li class="tab">{{ booking.slot }}</li>

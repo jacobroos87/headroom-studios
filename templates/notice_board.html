@@ -49,7 +49,7 @@
             {% endif %}
             <span class="title">{{ post.post_title }}</span><br><span class="user-post">Posted by:
                 {{ post.created_by|capitalize }}</span><br><span class="user-post">Date:
-                {{ post.date_posted }}</span>
+                {{ post.date_posted.strftime('%d %b %Y') }}</span>
             {% if post.is_urgent == "on" %}
             <i class="fas fa-exclamation-circle light-blue-text text-lighten-2 tooltipped" data-position="right"
                 data-tooltip="URGENT!"></i>

@@ -109,6 +109,29 @@ nav .brand-logo {
     font-weight: 300;
 }
 
+@media (max-width: 992px) {
+    nav .brand-logo {
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 500px) {
+    nav .brand-logo {
+        margin-left: 15px;
+        font-size: 26px;
+        float: left;
+        transform: unset;
+    }
+}
+
+@media (max-width: 320px) {
+    nav .brand-logo {
+        margin-left: 10px;
+        font-size: 22px;
+    }
+}
+
+
 /*------ Flash Messages -----*/
 
 #flash-message {
@@ -183,17 +206,6 @@ footer ul li{
 }
 
 /*------ Home Page -----*/
-/*------ About section -----*/
-
-/* .about ul li {
-    list-style-type: circle;
-    display: list-item;
-    margin-left: 40px;
-}
-
-.container .about {
-    padding-top: 25px 0;
-} */
 
 .icon-banner {
     background-color: #26a69a;
@@ -240,7 +252,7 @@ footer ul li{
     font-size: 18px;
 }
 
-/*------ Contact Form Modal -----*/
+/*------ Modals -----*/
 
 .modal {
     width: 65%;
@@ -261,6 +273,20 @@ footer ul li{
 .modal .modal-content {
     padding-bottom: 0px;
 }
+
+@media (max-width: 500px) {
+    .modal .modal-content {
+        padding: 10px;        
+    }
+}
+
+@media (max-width: 500px) {
+    .modal {
+        width: 95%;        
+    }
+}
+
+
 
 /*------ Rehearsal Studios -----*/
 
@@ -444,4 +470,14 @@ ul.collapsible {
 
 div.switch {
     margin-top: 8px;
+}
+
+/*------ 404 error page -----*/
+
+.error-container {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 25px;
 }

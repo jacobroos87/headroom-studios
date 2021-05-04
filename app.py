@@ -5,7 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime, date
+from datetime import timedelta, datetime, date
 if os.path.exists("env.py"):
     import env
 
@@ -103,7 +103,6 @@ def login():
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username").capitalize()))
-                session.permanent = True
                 return redirect(url_for(
                     "profile", username=session["user"], today=today))
             else:
@@ -238,7 +237,8 @@ def edit_booking(booking_id):
 
         submit = {
             "studio": request.form.get("studio"),
-            "date": request.form.get("booking-date"),
+            "date": datetime.strptime(
+                request.form.get("booking-date"), '%b %d, %Y'),
             "slot": request.form.get("time-slot"),
             "contact_name": request.form.get("contact_name"),
             "additional_info": request.form.get("additional_info"),
@@ -273,8 +273,7 @@ def add_post():
             "category": request.form.get("category"),
             "created_by": session["user"],
             "email": request.form.get("email"),
-            "date_posted": str(today)
-
+            "date_posted": today
         }
         mongo.db.posts.insert_one(post)
         flash("Post Successfully Added")
@@ -309,7 +308,7 @@ def delete_post(post_id):
     mongo.db.posts.remove({"_id": ObjectId(post_id)})
     flash("Post successfully deleted")
     return redirect(url_for("notice_board"))
- 
+
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):

@@ -22,7 +22,7 @@
             <h4>Register</h4>
             <div class="container">
                 <div class="row">
-                    <form class="col s12" id="reg-form" action="{{ url_for('call_modal') }}" method="POST">
+                    <form class="col s12" id="reg-form" action="{{ url_for('register') }}" method="POST">
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="fas fa-user-plus prefix black-text"></i>
@@ -61,20 +61,6 @@
         </div>
     </div>
 
-    <!-- Delete Post Modal -->
-    <div id="delete-post-modal" class="modal">
-        <div class="modal-content">
-            <h4>Confirmation</h4>
-            <p>Are you sure you want to delete your post?</p>
-        </div>
-        <div class="modal-footer">
-            <form action="{{ url_for('delete_post', post_id=post._id) }}" method="POST">
-                <input type="submit" class="btn-flat waves-green waves-effect" value="Delete">
-            </form>
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-        </div>
-    </div>
-
     <header>
 
         <!-- top navbar -->
@@ -87,7 +73,7 @@
                 <ul class="hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
                     <li><a href="{{ url_for('rehearsal_studios') }}">Rehearsal Studios</a></li>
-                    <li><a href="{{ url_for('notice_board', post=post) }}">Notice Board</a></li>
+                    <li><a href="{{ url_for('notice_board') }}">Notice Board</a></li>
                     <li><a href="{{ url_for('faq') }}">FAQ</a></li>
                     <li><a href="{{ url_for('home', _anchor='contact_form') }}">Contact</a></li>
                     {% if session.user %}
@@ -114,7 +100,7 @@
         <ul class="sidenav center-align" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('rehearsal_studios') }}">Rehearsal Studios</a></li>
-            <li><a href="{{ url_for('notice_board', post=post) }}">Notice Board</a></li>
+            <li><a href="{{ url_for('notice_board') }}">Notice Board</a></li>
             <li><a href="{{ url_for('faq') }}">FAQ</a></li>
             <li><a href="{{ url_for('home', _anchor='contact_form') }}">Contact</a></li>
             {% if session.user %}

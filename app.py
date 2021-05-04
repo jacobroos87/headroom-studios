@@ -293,9 +293,8 @@ def edit_post(post_id):
     return render_template("edit_post.html", post=post)
 
 
-@app.route("/delete_post/<post_id>", methods=["POST"])
+@app.route("/delete_post/<post_id>")
 def delete_post(post_id):
-    post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
     mongo.db.posts.remove({"_id": ObjectId(post_id)})
     flash("Post successfully deleted")
     return redirect(url_for("notice_board"))
@@ -314,8 +313,8 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-@app.route("/call_modal", methods=["GET", "POST"])
-def call_modal():
+@app.route("/register", methods=["GET", "POST"])
+def register():
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(

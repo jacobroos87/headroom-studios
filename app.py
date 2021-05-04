@@ -251,6 +251,16 @@ def edit_booking(booking_id):
     return render_template("edit_booking.html", booking=booking)
 
 
+@app.route("/delete_booking/<booking_id>")
+def delete_booking(booking_id):
+    mongo.db.bookings.remove({"_id": ObjectId(booking_id)})
+    if session["user"] == "admin":
+        flash("Booking successfully deleted")
+        return redirect(url_for("admin", username=session["user"]))
+    flash("Booking successfully deleted")
+    return redirect(url_for("profile", username=session["user"]))
+
+
 @app.route("/add_post", methods=["GET", "POST"])
 def add_post():
     if request.method == "POST":

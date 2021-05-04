@@ -105,6 +105,12 @@ nav .brand-logo {
     font-weight: 300;
 }
 
+/*------ Flash Messages -----*/
+
+#flash-message {
+    margin-bottom: 6px;
+}
+
 /*------ Hero Img -----*/
 
 .hero-img {
@@ -417,11 +423,13 @@ ul.collapsible {
     padding: 0 10px;
 }
 
-#delete-post-modal .modal-footer i {
+/*------ Confirmation Modal -----*/
+
+.modal .modal-footer i {
     font-size: 20px;
 }
 
-#delete-post-modal .modal-footer {
+.modal .modal-footer {
     padding-right: 12px;
 }
 

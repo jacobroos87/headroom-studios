@@ -19,7 +19,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 
 mongo = PyMongo(app)
-today = date.today().strftime('%d/%m/%Y')
+today = date.today().strftime('%d %m/%Y')
 
 
 @app.route("/")
@@ -206,14 +206,14 @@ def new_booking():
         }
         mongo.db.bookings.insert_one(booking)
         flash("Booking Successful")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for(
+            "profile", username=session["user"], today=today))
 
     return render_template("bookings.html")
 
 
 @app.route("/admin/<username>", methods=["GET", "POST"])
 def admin(username):
-    today = date.today().strftime('%b %d/%Y')
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     bookings = list(mongo.db.bookings.find())
@@ -313,7 +313,6 @@ def delete_post(post_id):
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab session user's username from the database
-    today = date.today().strftime('%b %d/%Y')
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     bookings = list(mongo.db.bookings.find())

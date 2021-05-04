@@ -71,24 +71,25 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 </div>
                 <ul class="hide-on-med-and-down">
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('rehearsal_studios') }}">Rehearsal Studios</a></li>
-                    <li><a href="{{ url_for('notice_board') }}">Notice Board</a></li>
-                    <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+                    <li class="{% block nav_home %}{% endblock %}"><a href="{{ url_for('home') }}">Home</a></li>
+                    <li class="{% block nav_rs %}{% endblock %}"><a href="{{ url_for('rehearsal_studios') }}">Rehearsal Studios</a></li>
+                    <li class="{% block nav_nb %}{% endblock %}"><a href="{{ url_for('notice_board') }}">Notice Board</a></li>
+                    <li class="{% block nav_faq %}{% endblock %}"><a href="{{ url_for('faq') }}">FAQ</a></li>
                     <li><a href="{{ url_for('home', _anchor='contact_form') }}">Contact</a></li>
                     {% if session.user %}
-                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i
+                    <li  class="{% block nav_dropdown %}{% endblock %}"><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i
                                 class="fas fa-caret-down"></i><i class="fas fa-user-circle"></i></a></li>
                     <ul id="dropdown1" class="dropdown-content center-align">
-                        <li><a href="{{ url_for('bookings') }}">Bookings</a></li>
-                        <li><a href="{{ url_for('profile', username=session['user'], today=today) }}">Profile</a></li>
-                        <li><a href="{{ url_for('add_post') }}">Add Post</a></li>
+                        <li class="{% block nav_bookings %}{% endblock %}"><a href="{{ url_for('bookings') }}">Bookings</a></li>
+                        <li class="{% block nav_profile %}{% endblock %}"><a href="{{ url_for('profile', username=session['user'], today=today) }}">Profile</a></li>
+                        <li class="{% block nav_ap %}{% endblock %}"><a href="{{ url_for('add_post') }}">Add Post</a></li>
                         {% if session.user|lower == "admin"|lower %}
-                        <li><a href="{{ url_for('admin', username=session['user'], today=today) }}">Admin</a></li>
+                        <li class="{% block nav_mb %}{% endblock %}"><a href="{{ url_for('admin', username=session['user'], today=today) }}">Admin</a>
+                        </li>
                         {% endif %}
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}
-                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li class="{% block nav_login %}{% endblock %}"><a href="{{ url_for('login', today=today) }}">Log In</a></li>
                         <li><a class="modal-trigger" href="#modal1">Register</a></li>
                     </ul>
                     {% endif %}
@@ -98,21 +99,21 @@
 
         <!-- mobile sidenav -->
         <ul class="sidenav center-align" id="mobile-demo">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('rehearsal_studios') }}">Rehearsal Studios</a></li>
-            <li><a href="{{ url_for('notice_board') }}">Notice Board</a></li>
-            <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+            <li class="{% block nav_home_mobile %}{% endblock %}"><a href="{{ url_for('home') }}">Home</a></li>
+            <li class="{% block nav_rs_mobile %}{% endblock %}"><a href="{{ url_for('rehearsal_studios') }}">Rehearsal Studios</a></li>
+            <li class="{% block nav_nb_mobile %}{% endblock %}"><a href="{{ url_for('notice_board') }}">Notice Board</a></li>
+            <li class="{% block nav_faq_mobile %}{% endblock %}"><a href="{{ url_for('faq') }}">FAQ</a></li>
             <li><a href="{{ url_for('home', _anchor='contact_form') }}">Contact</a></li>
             {% if session.user %}
-            <li><a href="{{ url_for('bookings') }}">Bookings</a></li>
-            <li><a href="{{ url_for('profile', username=session['user'], today=today) }}">Profile</a></li>
-            <li><a href="{{ url_for('add_post') }}">Add Post</a></li>
+            <li class="{% block nav_bookings_mobile %}{% endblock %}"><a href="{{ url_for('bookings') }}">Bookings</a></li>
+            <li class="{% block nav_profile_mobile %}{% endblock %}"><a href="{{ url_for('profile', username=session['user'], today=today) }}">Profile</a></li>
+            <li class="{% block nav_np_mobile %}{% endblock %}"><a href="{{ url_for('add_post') }}">Add Post</a></li>
             {% if session.user|lower == "admin"|lower %}
-            <li><a href="{{ url_for('admin', username=session['user'], today=today) }}">Admin</a></li>
+            <li class="{% block nav_mb_mobile %}{% endblock %}"><a href="{{ url_for('admin', username=session['user'], today=today) }}">Admin</a></li>
             {% endif %}
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
-            <li><a href="{{ url_for('login') }}">Log In</a></li>
+            <li class="{% block nav_login_mobile %}{% endblock %}"><a href="{{ url_for('login', today=today) }}">Log In</a></li>
             <li><a class="modal-trigger" href="#modal1">Register</a></li>
             {% endif %}
         </ul>

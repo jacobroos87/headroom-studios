@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block nav_profile %}active{% endblock %}
+{% block nav_profile_mobile %}active{% endblock %}
+{% block nav_dropdown %}active{% endblock %}
 {% block content %}
 
 <div class="row">
@@ -18,45 +21,48 @@
     <h4 class="center-align">Active Bookings:</h4>
     <div class="row">
         {% for booking in bookings|sort(attribute='date') %}
-        <!-- Delete Booking Modal -->
-        <div id="delete-booking-modal" class="modal">
-            <div class="modal-content">
-                <h6>Are you sure you want to delete your booking?</h6>
+            <!-- Delete Booking Modal -->
+            <div id="delete-booking-modal" class="modal">
+                <div class="modal-content">
+                    <h6>Are you sure you want to delete your booking?</h6>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url_for('delete_booking', booking_id=booking._id)}}"><i
+                            class="fas btn-small red fa-trash-alt" title="Delete"></i></a>
+                    <a href="#!" class="modal-close"><i class="fas btn-small fa-times-circle" title="Cancel"></i></a>
+                </div>
             </div>
-            <div class="modal-footer">
-                <a href="{{ url_for('delete_booking', booking_id=booking._id)}}"><i class="fas btn-small red fa-trash-alt" title="Delete"></i></a>
-                <a href="#!" class="modal-close"><i class="fas btn-small fa-times-circle" title="Cancel"></i></a>
+            {% if session.user|lower == booking.created_by|lower %}
+            <div class="card small col l4 m6 s12">
+                <div class="card-content">
+                    <a href="#delete-booking-modal" class="modal-trigger"><i class="fas fa-trash-alt right"
+                            title="Delete"></i></a>
+                    <a href="{{ url_for('edit_booking', booking_id=booking._id)}}"><i class="fas fa-edit right"
+                            title="Edit"></i></a>
+                    <h6>{{ booking.contact_name }}</h6>
+                    <div class="divider"></div>
+                    <p class="scroll">{{ booking.additional_info }}</p>
+                </div>
+                <div class="card-tabs">
+                    <ul class="tabs tabs-fixed-width center-align">
+                        <li class="tab">Date</li>
+                        <li class="tab">Studio</li>
+                        <li class="tab">Slot</li>
+                    </ul>
+                </div>
+                <div class="card-content details">
+                    <ul class="tabs tabs-fixed-width grey lighten-4">
+                        {% if booking.date < today %}
+                            <li class="tab out-of-date">{{ booking.date }}</li>
+                        {% else %}
+                            <li class="tab">{{ booking.date }}</li>
+                        {% endif %}
+                        <li class="tab">{{ booking.studio }}</li>
+                        <li class="tab">{{ booking.slot }}</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        {% if session.user|lower == booking.created_by|lower %}
-        <div class="card small col l4 m6 s12">
-            <div class="card-content">
-                <a href="#delete-booking-modal" class="modal-trigger"><i class="fas fa-trash-alt right" title="Delete"></i></a>
-                <a href="{{ url_for('edit_booking', booking_id=booking._id)}}"><i class="fas fa-edit right" title="Edit"></i></a>
-                <h6>{{ booking.contact_name }}</h6>
-                <div class="divider"></div>
-                <p class="scroll">{{ booking.additional_info }}</p>
-            </div>
-            <div class="card-tabs">
-                <ul class="tabs tabs-fixed-width center-align">
-                    <li class="tab">Date</li>
-                    <li class="tab">Studio</li>
-                    <li class="tab">Slot</li>
-                </ul>
-            </div>
-            <div class="card-content details">
-                <ul class="tabs tabs-fixed-width grey lighten-4">
-                    {% if booking.date < today %}
-                    <li class="tab out-of-date">{{ booking.date }}</li>
-                    {% else %}
-                    <li class="tab">{{ booking.date }}</li>
-                    {% endif %}
-                    <li class="tab">{{ booking.studio }}</li>
-                    <li class="tab">{{ booking.slot }}</li>
-                </ul>
-            </div>
-        </div>
-        {% endif %}
+            {% endif %}
         {% endfor %}
     </div>
 </div>

@@ -80,6 +80,12 @@ nav.nav-center ul li a.btn:hover {
     padding-top: 10px;
 }
 
+@media (max-width: 500px) {
+    .nav-wrapper .center-align {
+        padding-top: 0px;
+    }
+}
+
 .dropdown-content {
   top: 100% !important;
 }
@@ -256,6 +262,7 @@ footer ul li{
 
 .modal {
     width: 65%;
+    overflow-y: visible;
 }
 
 @media (min-width: 991px) {
@@ -272,6 +279,7 @@ footer ul li{
 
 .modal .modal-content {
     padding-bottom: 0px;
+    height: 100%;
 }
 
 @media (max-width: 500px) {
@@ -282,7 +290,14 @@ footer ul li{
 
 @media (max-width: 500px) {
     .modal {
-        width: 95%;        
+        width: 95%; 
+        height: 70%;       
+    }
+}
+
+@media (max-width: 500px) {
+    #delete-booking-modal, #delete-post-modal {
+        height: 50px;
     }
 }
 

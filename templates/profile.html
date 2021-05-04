@@ -20,7 +20,7 @@
 <div class="container">
     <h4 class="center-align">Active Bookings:</h4>
     <div class="row">
-        {% for booking in bookings|sort(attribute='date') %}
+        {% for booking in bookings|sort(attribute=('date')) %}
             <!-- Delete Booking Modal -->
             <div id="delete-booking-modal" class="modal">
                 <div class="modal-content">
@@ -53,9 +53,9 @@
                 <div class="card-content details">
                     <ul class="tabs tabs-fixed-width grey lighten-4">
                         {% if booking.date < today %}
-                            <li class="tab out-of-date">{{ booking.date }}</li>
+                            <li class="tab out-of-date">{{ booking.date.strftime('%b %d, %Y') }}</li>
                         {% else %}
-                            <li class="tab">{{ booking.date }}</li>
+                            <li class="tab">{{ booking.date.strftime('%b %d, %Y') }}</li>
                         {% endif %}
                         <li class="tab">{{ booking.studio }}</li>
                         <li class="tab">{{ booking.slot }}</li>

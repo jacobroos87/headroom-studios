@@ -5,7 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import timedelta, date
+from datetime import datetime, date
 if os.path.exists("env.py"):
     import env
 
@@ -19,7 +19,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 
 mongo = PyMongo(app)
-today = date.today().strftime('%d %m/%Y')
+today = datetime.now()
 
 
 @app.route("/")
@@ -198,7 +198,8 @@ def new_booking():
             return redirect(url_for("bookings"))
         booking = {
             "studio": request.form.get("studio"),
-            "date": request.form.get("booking-date"),
+            "date": datetime.strptime(
+                request.form.get("booking-date"), '%b %d, %Y'),
             "slot": request.form.get("time-slot"),
             "contact_name": request.form.get("contact_name"),
             "additional_info": request.form.get("additional_info"),

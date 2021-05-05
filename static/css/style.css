@@ -153,6 +153,12 @@ nav .brand-logo {
     margin-bottom: 6px;
 }
 
+@media (max-width: 500px) {
+    #flash-message h4 {
+        font-size: 1.4rem;
+    }
+}
+
 /*------ Hero Img -----*/
 
 .hero-img {
@@ -321,8 +327,6 @@ footer ul li{
     }
 }
 
-
-
 /*------ Rehearsal Studios -----*/
 
 .right-arrow {
@@ -389,6 +393,12 @@ ul.collapsible {
 
 .booking-blurb {
     margin: 25px 50px;
+}
+
+@media (max-width: 500px) {
+    .booking-blurb {
+    margin: 25px 25px;
+    }
 }
 
 .booking-heading {

@@ -214,8 +214,7 @@ I decided to add a user icon to the navbar with a dropdown once the user is logg
 * The new post page takes the user to a form that allows the user to fill in a category, title, message, email and if the post is urgent
 * This information is stored on mongoDB and then looped through using jinja on the notice board page
 * Once the post has been added, the user gets a confirmation flash message and the post is listed on the notice board
-* This post can then be edited or deleted on the notice board page.  The delete button loads a confirmation modal
-  and if the user chooses to delete the post it gets removed from the notice board and the database.  The edit post works in the same was as the edit booking function where the user gets taken to a form that has a some elements prefilled and then the changes are updated using the .update() function
+* This post can then be edited or deleted on the notice board page.  The delete button loads a confirmation modal and if the user chooses to delete the post it gets removed from the notice board and the database.  The edit post works in the same was as the edit booking function where the user gets taken to a form that has a some elements prefilled and then the changes are updated using the .update() function
 
 ## Admin
 
@@ -232,3 +231,41 @@ I decided to add a user icon to the navbar with a dropdown once the user is logg
 * The footer includes a sign-up email form, address and social media links
 * The sign up form puts the user email into a subscribers collection and flashes a success message.  This database can then be used by the admin for marketing purposes
 * All social links have hover effects and currently link to the root websites but would be linked to the relevant pages were this a functioning business
+
+# Future Features
+
+The site is definitely functional however I feel that a dynamic calendar system would be advantageous and also having the ability to pay for bookings online would be ideal. I would also love to be able to implement a feature where an invoice is automatically generated and sent after a booking.  
+There is also a system that I've seen used where you can send the user a code, which can then be used to unlock the studio door which would simplify the setup even more.  
+
+* ## Known Issues
+
+As this is a project site there are a few things that would be changed for a commercial site.  Firstly the social media links would be linked to the appropriate pages as currently these are only linked to the home pages.  The Email.js return email would be a working business email address as this is currently my own. Also there seems to be an error where the quotes that loop are displayed stacked instead of one at a time if you leave the website tab and then return.
+
+* ## Ideas
+
+I chose to do this as a project due to a close friend owning a rehearsal studio and this being a potential prototype to expand on.  His intention is the add recording facilities and also link to his external site which contains work of his film compositions.  
+
+[Back to top](#table-of-contents)
+
+# Technologies Used
+
+## Languages
+
+- #### HTML, CSS, JavaScript, Python
+
+## Libraries and Frameworks
+
+* #### [Materialize](https://materializecss.com/)
+    * Used for layout, forms and navbar 
+* #### [Font Awesome](https://fontawesome.com/)
+    * Used for all icons
+* #### [Google Fonts](https://fonts.google.com/)
+    * Used for site fonts
+* #### [jQuery](https://jquery.com/)
+    * Used for site manipulation and to simplify JavaScript selectors
+* #### [flask & Jinja](https://flask.palletsprojects.com/en/1.1.x/)
+    * Used to write the backend code with python and to implement in the frontend with jinja
+* #### [Email.js](https://www.emailjs.com/)
+    * Used to send contact form submission data to developer and response to the user
+
+[Back to top](#table-of-contents)

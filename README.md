@@ -105,3 +105,130 @@ The fonts all remain black and white for contrast and to improve readability.
 
 The fonts that were used on the site are "**Bungee**" and "**Roboto**".  The style of the Bungee font was inline with the slightly darker vibe and worked well as a standalone Logo font.  Roboto is a modern easy to read font that was complimentary to the bungee logo font.
 [Back to top](#table-of-contents)
+
+# Features and Structure
+
+The site is layed out in a simple structure with smooth scrolling on the home page for the contact section and a small blurb describing the ethos of headroom studios and what facilities are available.  The Hero is consistent over all pages and has a selection of quotes from the biggest hypothetical clients that cycles through.  
+All sections are focussed around a row and a 3 column layout separated with full width container sections.  The details for each page are listed below:
+
+The main sections that were decided upon were:
+
+* Home
+* Rehearsal Studios
+* Notice Board
+* FAQ
+* Contact
+* Log In
+* Register
+
+The other sections that become available to the user once registered and logged in are:
+
+* Bookings
+* Profile
+* New Post
+* Admin (admin only)
+* Log Out
+
+I decided to add a user icon to the navbar with a dropdown once the user is logged in to minimise the visible tabs.  This helped to streamline the design as all of those links on one line was a bit too much!
+
+## Navbar
+
+* The Navbar has a Navbar brand for the website logo and 7 addition links - Home, Rehearsal Studios, Notice Board, FAQ, Contact, Log In & Register
+* The Register tab links to a modal instead of a separate page.
+* When logged in a user icon appears instead of log in and register. These links also become available: Bookings, Profile, Add Post, Manage Bookings (admin) & Log Out
+* All the links have a hover effect and an active state when selected
+* Materialize was used to create a collapsible dropdown (hamburger menu) for smaller devices that comes in from the right side of the screen
+
+## Home
+
+* The Home page/landing page has a hero image with a rotation of customer quotes. This functionlity was created using an interval function in JS
+* Further down the page you have a small blurb about the business and what services are offered
+* Underneath this there is a full width div with 6 icons highlighting the key points that make headroom studios an ideal choice for creatives
+* Below this is the contact form that has a success/error modal that is displayed once the form is submitted.  Using emailJS the user is then emailed with a confirmation and the admin is sent the message that was submitted.
+
+## Reheasal Rooms
+
+* The page opens with a small blurb telling the user how the booking system works and includes relevant links to the sections mentioned
+* Below this section I added 3 cards for the rehearsal studios with Materialize
+* Each card has a small blurb about the room and its 'vibe' and includes a link to view more images
+* Once the user clicks on the 'MORE IMAGES' link a modal pops up allowing the user to scroll through images of that studio
+* The sizing of the images adjust depending on the device and I altered the original Materialize functionality by including prev and next arrow instead of the built in circle icons.  I decided on this due to there being quite a few images and with all the dot icons it was a bit much to navigate especially on smaller devices.
+
+## Notice Board
+
+* This section is made up of set of collections that are looped through and displayed with jinja/python
+* The content is initially submitted through an active user which is stored on mongoDB and then brought back in with python/jinja
+* There is also an if/else loop to dynamically add the category icon to the post
+* The user that submits the post has to provide a contact email address which is assigned to the mail icon using jinja
+* The username is also posted underneath the post title with an exclamation mark if the post was labelled as urgent
+* Underneath this is a date stamp that was created using the datetime package in python and formatted using the strftime() function
+* There is also pagination added with a maximum amount of posts set to 6 items before the next pages are made active
+
+## FAQ
+
+* The code for this page was kept simple using a Materialize collection and a set of typical questions that might be asked by users of the studio
+* In terms of its design it's simple and to the point with a question answer layout
+* The idea behind adding the page is purely for extra information that would be essential for a real life business!
+
+## Contact
+
+* The contact section contains a Materialize form with a simple opening blurb and contains 4 sections
+* All sections are labelled as required and show their relevant input errors and suggestions
+* A modal was added with JS and displays either a success or error message depending on the submission response
+* EmailJS was used to create an email template and also an auto-reply
+
+## Log In
+
+* The log in page has a simple 2 section form asking for a username and password
+* Python is used to then check on the mongo database if the user exists.  If the user exists they're welcomed and redirected to their profile.  If not then an error is flashed and the user is redirected back to the login page
+
+## Register
+
+* I decided to go for a modal for the registration to mix up the UI with something different to another page
+* The modal has a 3 part form asking for a username, email and password
+* This data is then stored on mongo and called upon as the 'session user' 
+* The database is also checked initially on the registration and an error message is flashed if the user exists and success if the registration was a success with the user being redirected to the home page
+
+## Bookings
+
+* The bookings page has 2 main sections: Firstly to check availability and then to make a booking
+* The section that checks availability asks the user to input a date and time. The database is then referenced using python and flashes a message saying which studio(s) are available on that date and time
+* This allows for the user to make a quick check before moving ahead an filling in the main booking form
+* There are required restrictions on the inputs to ensure they're filled in correctly. This functionality needed to be added seperately for the Materialize select dropdowns using JS
+* The booking form then asks for date, studio, time, artist/contact name and allows a message for any special requests
+* This information is stored on mongoDB and is then displayed using jinja on the user profile and also the admin page for the admin user
+* Only bookings made by that user will be displayed on their profile.  I also added a sort function into the jijna loop to display the bookings in date order
+* Success and error flash messages are also set up for booking confirmation
+
+## Profile
+
+* This is a simple page where the user can reference their active bookings and make changes or a cancellation
+* The booking information is displayed in a card and includes en edit and delete icon 
+* If the user wants to edit a booking the user gets transferred to a form screen that has the date and contact prefilled
+* If the user tries to change to a date already booked an error is flashed and they're redirected to the bookings page where they can check availability
+* Otherwise if the change is a success then the booking is updated and the changes are shown on the user profile
+* If a user wants to delete a booking they simply press the delete icon which loads a confirmation modal. If the user agrees to delete then the booking is removed from the database and a confirmation flash message pops up
+
+## New Post
+
+* The new post page takes the user to a form that allows the user to fill in a category, title, message, email and if the post is urgent
+* This information is stored on mongoDB and then looped through using jinja on the notice board page
+* Once the post has been added, the user gets a confirmation flash message and the post is listed on the notice board
+* This post can then be edited or deleted on the notice board page.  The delete button loads a confirmation modal
+  and if the user chooses to delete the post it gets removed from the notice board and the database.  The edit post works in the same was as the edit booking function where the user gets taken to a form that has a some elements prefilled and then the changes are updated using the .update() function
+
+## Admin
+
+* This page is only available for the admin user
+* It works in a similar way to the profile page but the jijna loop shows all the bookings currently in the database in date order
+* The admin isn't able to edit the bookings however does have the ability to delete the bookings for potential cancellations made not via the website (hypothetically)
+
+## Log Out
+
+* This is a simple nav link that logs out the user using session.pop("user") and then redirects them to the log in page with a flash confirmation message
+
+## Footer
+
+* The footer includes a sign-up email form, address and social media links
+* The sign up form puts the user email into a subscribers collection and flashes a success message.  This database can then be used by the admin for marketing purposes
+* All social links have hover effects and currently link to the root websites but would be linked to the relevant pages were this a functioning business

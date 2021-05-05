@@ -5,6 +5,7 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
     $('.datepicker').datepicker({
         minDate: new Date(),
+        format: 'dd mmm yyyy',
     });
     $('select').formSelect();
     $('.slider').slider({ activeIndex: 1 }, 'pause');

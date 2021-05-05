@@ -135,7 +135,9 @@ def bookings():
 def check_availability():
     if request.method == "POST":
         # check if booking already exists in db
-        date = request.form.get("date")
+        date = datetime.strptime(
+                request.form.get("date"), '%d %b %Y')
+        date_formatted = request.form.get("date")
         slot = request.form.get("slot")
 
         # find appropriate studios
@@ -174,15 +176,15 @@ def check_availability():
         if available_studios == "none":
             flash(
                 f"All of our studios are fully booked on\
-                    {date} for the {slot} slot")
+                    {date_formatted} for the {slot} slot")
         elif available_studios == "all":
             flash(
                 f"Currently all three studios are available on\
-                    {date} in the {slot}")
+                    {date_formatted} in the {slot}")
         else:
             flash(
                 f"Studio {available_studios} currently available on\
-                    {date} in the {slot}")
+                    {date_formatted} in the {slot}")
     return redirect(url_for("bookings"))
 
 
@@ -198,7 +200,7 @@ def new_booking():
         booking = {
             "studio": request.form.get("studio"),
             "date": datetime.strptime(
-                request.form.get("booking-date"), '%b %d, %Y'),
+                request.form.get("booking-date"), '%d %b %Y'),
             "slot": request.form.get("time-slot"),
             "contact_name": request.form.get("contact_name"),
             "additional_info": request.form.get("additional_info"),

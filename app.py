@@ -6,7 +6,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import timedelta, datetime, date
+from datetime import datetime, date
 if os.path.exists("env.py"):
     import env
 
@@ -78,8 +78,6 @@ def prev_page(current_page):
     else:
         page = int(current_page) - 1
         return redirect(url_for('notice_board', page=page))
-
-
 
 
 @app.route("/faq")

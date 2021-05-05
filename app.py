@@ -294,7 +294,7 @@ def edit_post(post_id):
             "is_urgent": is_urgent,
             "created_by": session["user"],
             "email": request.form.get("email"),
-            "date_posted": str(today)
+            "date_posted": today
         }
         mongo.db.posts.update({"_id": ObjectId(post_id)}, submit)
         flash("Post Successfully Updated")

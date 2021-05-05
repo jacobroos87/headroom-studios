@@ -238,7 +238,7 @@ def edit_booking(booking_id):
         submit = {
             "studio": request.form.get("studio"),
             "date": datetime.strptime(
-                request.form.get("booking-date"), '%b %d, %Y'),
+                request.form.get("booking-date"), '%d %b %Y'),
             "slot": request.form.get("time-slot"),
             "contact_name": request.form.get("contact_name"),
             "additional_info": request.form.get("additional_info"),

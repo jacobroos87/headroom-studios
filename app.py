@@ -1,4 +1,5 @@
 import os
+import math
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -45,7 +46,7 @@ def notice_board():
 
     # Pagination Variables
     number_per_page = 6
-    number_of_pages = round(len(posts) / number_per_page)
+    number_of_pages = math.ceil(len(posts) / number_per_page)
     if number_of_pages < 1:
         number_of_pages = 1
 

@@ -232,6 +232,43 @@ I decided to add a user icon to the navbar with a dropdown once the user is logg
 * The sign up form puts the user email into a subscribers collection and flashes a success message.  This database can then be used by the admin for marketing purposes
 * All social links have hover effects and currently link to the root websites but would be linked to the relevant pages were this a functioning business
 
+# Database Structure
+
+## Bookings
+
+1. ObjectId - (created by mongoDB)
+2. studio - string
+3. date - datetime object
+4. slot - string
+5. contact_name - string
+6. additional_info - string
+7. created_by - string
+
+
+## Posts
+
+1. ObjectId - (created by mongoDB)
+2. post-title - string
+3. post-message - string
+4. is_urgent - string
+5. category - string
+6. created_by - string
+7. email - string
+8. date_posted - datetime object
+
+## Users
+
+1. ObjectId - (created by mongoDB)
+2. username - string
+3. email - string
+4. password - string (hashed password)
+
+
+## Subscribers
+
+1. ObjectId - (created by mongoDB)
+2. email - string
+
 # Future Features
 
 The site is definitely functional however I feel that a dynamic calendar system would be advantageous and also having the ability to pay for bookings online would be ideal. I would also love to be able to implement a feature where an invoice is automatically generated and sent after a booking.  

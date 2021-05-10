@@ -273,11 +273,11 @@
 </div>
 <div class="col s12 center-align space">
     {% if session.user %}
-    <a class="btn waves-effect waves-light" href="{{ url_for('bookings') }}" type="submit" name="action">Make a
+    <a class="btn-small waves-effect waves-light" href="{{ url_for('bookings') }}" type="submit" name="action">Make a
         booking<i class="fas fa-calendar-alt right "></i>
     </a>
     {% else %}
-    <a class="btn waves-effect waves-light" href="{{ url_for('login', today=today) }}" type="submit" name="action">Make a booking<i
+    <a class="btn-small waves-effect waves-light" href="{{ url_for('login', today=today) }}" type="submit" name="action">Make a booking<i
             class="fas fa-calendar-alt right "></i>
     </a>
     {% endif %}

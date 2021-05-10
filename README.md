@@ -40,6 +40,45 @@ Headroom Studios is a site built for musicians/creatives with an added sense of 
 
 # Wireframes:
 
+## Home Page
+
+![Home Page](documentation/img/home-wf.png)
+## Rehearsal Studios
+
+![Rehearsal Studios](documentation/img/rehearsal-studios-wf.png)
+## Notice Board
+
+![Notice Board](documentation/img/noticeboard-wf-1.png)
+![Notice Board](documentation/img/noticeboard-wf-2.png)
+## FAQ
+
+![FAQ](documentation/img/faq-wf.png)
+## Contact
+
+The Contact tab is the same as the home page.  The contact form is located at the bottom and the link has a smooth-scroll effect added.
+
+## Log In
+
+![Log In](documentation/img/login-wf.png)
+## Register
+
+![Register](documentation/img/register-wf.png)
+## Bookings
+
+![Bookings](documentation/img/bookings-wf.png)
+## Profile
+
+![Profile](documentation/img/profile-wf.png)
+## Add Post
+
+![Add Post](documentation/img/add-post-wf.png)
+## Admin
+
+![Admin](documentation/img/admin-wf.png)
+## Log Out
+
+Log out is a simple route to remove the user using session.pop("user").  This then redirects to the home page
+
 <a name="responsivedesign"></a>
 # Responsive Design
 

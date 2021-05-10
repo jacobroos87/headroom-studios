@@ -142,7 +142,7 @@ nav .brand-logo {
 @media (max-width: 320px) {
     nav .brand-logo {
         margin-left: 10px;
-        font-size: 22px;
+        font-size: 21px;
     }
 }
 
@@ -212,20 +212,6 @@ nav .brand-logo {
     border-radius: 5px;
 }
 
-/*------ Footer -----*/
-
-footer ul li{
-  display: inline;
-  font-size: 35px;
-  margin-right: 10px;
-  margin-left: 5px;
-}
-
-.social-links li i:hover {
-    transition: 0.2s ease-in-out;
-    color: #26a69a;
-}
-
 /*------ Home Page -----*/
 
 .icon-banner {
@@ -275,6 +261,20 @@ footer ul li{
 
 #contact h6 {
     font-size: 18px;
+}
+
+/*------ Footer -----*/
+
+footer ul li{
+  display: inline;
+  font-size: 35px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.social-links li i:hover {
+    transition: 0.2s ease-in-out;
+    color: #26a69a;
 }
 
 /*------ Modals -----*/
@@ -329,6 +329,10 @@ footer ul li{
 
 /*------ Rehearsal Studios -----*/
 
+button, html [type="button"], [type="reset"], [type="submit"] {
+    -webkit-appearance: unset;
+}
+
 .right-arrow {
     height: 24px !important;
     cursor: pointer;
@@ -368,6 +372,55 @@ footer ul li{
 .card .card-image .card-title {
     background: rgba(0, 0, 0, 0.5);
     padding: 10px;
+}
+
+/*------ Notice Board -----*/
+
+p.scroll {
+    font-size: clamp(1rem, -0.675rem + 5.333333vw, 1.1rem);
+}
+
+.collection .collection-item.avatar p {
+    margin: 25px 0px;
+}
+
+.collection-item .title {
+    width: 80%;
+    display: inline-block;
+}
+
+.collection .avatar .btn-small {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    line-height: 25px;
+}
+
+.fa-exclamation-circle:before {
+    color: #ffab40;
+    margin-bottom: 10px;
+}
+
+.user-post {
+    font-style: italic;
+    font-size: 14px;
+    background-color: #dbdbdb;
+}
+
+.pagination i {
+    font-size: 20px;
+    padding: 4px 3px;
+    display: inline;
+    color: #ffab40;
+    height: 25px;
+    width: 45px;
+    border-radius: 3px;
+}
+
+.pagination p {
+    font-size: 18px;
+    display: inline;
+    padding: 0 10px;
 }
 
 /*------ FAQ Page -----*/
@@ -455,54 +508,6 @@ ul.collapsible {
 
 .out-of-date {
     color: red;
-}
-/*------ Notice Board -----*/
-
-p.scroll {
-    font-size: clamp(1rem, -0.675rem + 5.333333vw, 1.1rem);
-}
-
-.collection .collection-item.avatar p {
-    margin: 25px 0px;
-}
-
-.collection-item .title {
-    width: 80%;
-    display: inline-block;
-}
-
-.collection .avatar .btn-small {
-    width: 25px;
-    height: 25px;
-    padding: 0;
-    line-height: 25px;
-}
-
-.fa-exclamation-circle:before {
-    color: #ffab40;
-    margin-bottom: 10px;
-}
-
-.user-post {
-    font-style: italic;
-    font-size: 14px;
-    background-color: #dbdbdb;
-}
-
-.pagination i {
-    font-size: 20px;
-    padding: 4px 3px;
-    display: inline;
-    color: #ffab40;
-    height: 25px;
-    width: 45px;
-    border-radius: 3px;
-}
-
-.pagination p {
-    font-size: 18px;
-    display: inline;
-    padding: 0 10px;
 }
 
 /*------ Confirmation Modal -----*/

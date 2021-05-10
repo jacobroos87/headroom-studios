@@ -7,6 +7,51 @@
 Headroom Studios is a site built for musicians/creatives with an added sense of community. The business provides 3 rehearsal spaces that can be rented in blocks and is supplied with all the essential equipment that would be needed (apart from the instruments).  Bookings can be made/edited on a personal profile page once the user has registered and they're also able to contribute to the noticeboard where users can post items for sale, community events and job listings!  The site was designed with a simple and intuitive layout with a focus on ensuring booking flexibility and user feedback.  A live version of the site is available [HERE](https://jacobroos87.github.io/In-a-Nutshell/).
 ) 
 
+# Table of Contents
+
+1. [UX](#ux)
+    * [Objectives](#objectives)
+    * [User Stories](#user-stories)
+    * [Wireframes](#wireframes)
+    * [Responsive Design](#responsive-design)
+2. [Content Styling](#content-styling)
+3. [Features and Structure](#features-and-structure)
+    *  [Navbar](#navbar)
+    *  [Home](#home)
+    *  [Rehearsal Studios](#rehearsal-studios)
+    *  [Notice Board](#notice-board)
+    *  [FAQ](#faq)
+    *  [Contact](#contact)
+    *  [Log In](#log-in)
+    *  [Register](#register)
+    *  [Bookings](#bookings)
+    *  [Profile](#profile)
+    *  [New Post](#new-post)
+    *  [Admin](#admin)
+    *  [Log Out](#log-out)
+    *  [Footer](#footer)
+4. [Database Structure](#database-structure)
+5. [Future Features](#future-features)
+6. [Technologies Used](#technologies-used)
+    * [Languages](#languages)
+    * [Libraries and Frameworks](#libraries-and-frameworks)
+7. [Testing](#testing)
+    * [Manual Testing](#manual-testing)
+    * [DevTools](#devtools)
+    * [Automated Testing](#automated-testing)
+    * [User Story Testing](#user-story-testing)
+    * [User Testing](#user-testing)
+8. [Deployment](#deployment)
+    * [Heroku Deployment](#heroku-deployment)
+    * [Local Deployment](#local-deployment)
+9. [Credits](#credits)
+    * [Content](#content)
+    * [Media](#media)
+    * [Acknowledgements](#acknowledgements)
+    * [Online and Physical](#online-and-physical)
+        *  [Websites](#websites)
+        *  [Books](#books)
+
 # UX
 
 <a name="objectives"></a>
@@ -36,51 +81,53 @@ Headroom Studios is a site built for musicians/creatives with an added sense of 
 - As a visitor I want to have feedback so I know wether my booking or post has been successful
 - As a returning visitor I want to be able to see my active bookings and their relative information
 - As a returning visitor I want to be able to update or remove my post on the community notice board
+
 <a name="wireframes"></a>
 
-# Wireframes:
+## Wireframes
 
-## Home Page
+### Home Page Wireframes
 
 ![Home Page](documentation/img/home-wf.png)
-## Rehearsal Studios
+### Rehearsal Studios Wireframes
 
 ![Rehearsal Studios](documentation/img/rehearsal-studios-wf.png)
-## Notice Board
+### Notice Board Wireframes
 
 ![Notice Board](documentation/img/noticeboard-wf-1.png)
 ![Notice Board](documentation/img/noticeboard-wf-2.png)
-## FAQ
+### FAQ Wireframes
 
 ![FAQ](documentation/img/faq-wf.png)
-## Contact
+### Contact Wireframes
 
 The Contact tab is the same as the home page.  The contact form is located at the bottom and the link has a smooth-scroll effect added.
 
-## Log In
+### Log In Wireframes
 
 ![Log In](documentation/img/login-wf.png)
-## Register
+### Register Wireframes
 
 ![Register](documentation/img/register-wf.png)
-## Bookings
+### Bookings Wireframes
 
 ![Bookings](documentation/img/bookings-wf.png)
-## Profile
+### Profile Wireframes
 
 ![Profile](documentation/img/profile-wf.png)
-## Add Post
+### Add Post Wireframes
 
 ![Add Post](documentation/img/add-post-wf.png)
-## Admin
+### Admin Wireframes
 
 ![Admin](documentation/img/admin-wf.png)
-## Log Out
+### Log Out Wireframes
 
 Log out is a simple route to remove the user using session.pop("user").  This then redirects to the home page
 
-<a name="responsivedesign"></a>
-# Responsive Design
+[Back to top](#table-of-contents)
+
+## Responsive Design
 
 Media queries have been added to ensure the site works well on smaller devices.  Materialize responsive classes were also used for parts of the layout.
 
@@ -132,7 +179,9 @@ This admin page has the same concept as the profile pages.  Larger devices are 3
 
 The log out tab doesn't go to a separate page.  It simply logs the user out and returns them to the log in page.
 
-# Colours & Fonts
+[Back to top](#table-of-contents)
+
+# Content Styling
 
 ## Colours
 
@@ -140,9 +189,16 @@ The colours for the site were decided based on competitor sites and also taking 
 
 The fonts all remain black and white for contrast and to improve readability.  
 
+![Teal](documentation/img/teal-cc.png)
+
+![Orange](documentation/img/orange-cc.png)
+
+![Charcoal](documentation/img/charcoal-cc.png)
+
 ## Fonts
 
 The fonts that were used on the site are "**Bungee**" and "**Roboto**".  The style of the Bungee font was inline with the slightly darker vibe and worked well as a standalone Logo font.  Roboto is a modern easy to read font that was complimentary to the bungee logo font.
+
 [Back to top](#table-of-contents)
 
 # Features and Structure
@@ -271,6 +327,8 @@ I decided to add a user icon to the navbar with a dropdown once the user is logg
 * The sign up form puts the user email into a subscribers collection and flashes a success message.  This database can then be used by the admin for marketing purposes
 * All social links have hover effects and currently link to the root websites but would be linked to the relevant pages were this a functioning business
 
+[Back to top](#table-of-contents)
+
 # Database Structure
 
 ## Bookings
@@ -307,6 +365,8 @@ I decided to add a user icon to the navbar with a dropdown once the user is logg
 
 1. ObjectId - (created by mongoDB)
 2. email - string
+
+[Back to top](#table-of-contents)
 
 # Future Features
 
@@ -411,13 +471,13 @@ Check all user stories implemented | ✅ | ✅ | ✅ | ✅
 
 There is an error where the faded quotes that appear over the hero-img stack and display more than one if you leave the browser tab and later return.  This then goes away and returns to just one quote when the timeout function repeats. I haven't found a solution to this error but from the research I've done it seems like the browser changes the way some JS displays if the tab is inactive.
 
-# DevTools
+## DevTools
 
 Chrome Devtools was used during the development process and used extensively for testing. All devices were checked for functionality and visual errors. It was also used to target certain elements of the site to check changes before adding them to the code.
 
 The console was used to support the development process of the website JavaScript. All errors were satisfied and the project currently has none outstanding.
 
-# Automated testing
+## Automated testing
 
 * HTML was validated using [W3C HTML Markup Validation Service](https://validator.w3.org/)
 
@@ -431,7 +491,9 @@ The only error returned here was that I used margin:revert which I swapped out f
 
 The JS validation returned some warnings due to the use of ES6 syntax which might not be compatible with older browsers. Other than this it was mainly a few missing semicolons.
 
-# User Story Testing
+[Back to top](#table-of-contents)
+
+## User Story Testing
 
 #### As a visitor to the site I want to be able to clearly see the purpose of the site and services offered
 
@@ -495,13 +557,13 @@ The JS validation returned some warnings due to the use of ES6 syntax which migh
 * This speeds up the process for if I've either sold and item or found what I was looking for within the community
 * I'm informed during the edit and delete processes whether they've been successful or not
 
-# User Testing 
+## User Testing 
 
-## My Mentor (Dick Vlaanderen)
+### My Mentor (Dick Vlaanderen)
 
 When using the site my mentor mentioned that the original font was a little hard to read so I changed the overall font to the PT-sans style. This change greatly imoproved the user experience while still working aesthetically with the site.
 
-## A Fellow Code Institue Student
+### A Fellow Code Institue Student
 
 The site was thouroughly tested by a fellow CI student and some valueble feedback given which was implemented to improve the UX.  
 

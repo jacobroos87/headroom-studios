@@ -2,10 +2,14 @@
 
 ## Designed & Developed by Jacob Roos
 
+![Am I Responsive](documentation/img/responsive-img.png)
+
 ## Code Institute Milestone Project 3
 
-Headroom Studios is a site built for musicians/creatives with an added sense of community. The business provides 3 rehearsal spaces that can be rented in blocks and is supplied with all the essential equipment that would be needed (apart from the instruments).  Bookings can be made/edited on a personal profile page once the user has registered and they're also able to contribute to the noticeboard where users can post items for sale, community events and job listings!  The site was designed with a simple and intuitive layout with a focus on ensuring booking flexibility and user feedback.  A live version of the site is available [HERE](https://jacobroos87.github.io/In-a-Nutshell/).
-) 
+Headroom Studios is a site built for musicians/creatives with an added sense of community. The business provides 3 rehearsal spaces that can be rented in blocks and is supplied with all the essential equipment that would be needed (apart from the instruments).  Bookings can be made/edited on a personal profile page once the user has registered and they're also able to contribute to the noticeboard where users can post items for sale, community events and job listings!  The site was designed with a simple and intuitive layout with a focus on ensuring booking flexibility and user feedback.  
+
+A live version of the site is available [HERE](https://headroom-studios.herokuapp.com/).
+
 
 # Table of Contents
 
@@ -573,7 +577,7 @@ The site was thouroughly tested by a fellow CI student and some valueble feedbac
 
 ### Heroku Deployment
 
-* [LIVE SITE](###)
+* [LIVE SITE](https://headroom-studios.herokuapp.com/)
     * Below is a step by step for the hosting process:
        
     1. Set *_debug=False_* in the app.py file.

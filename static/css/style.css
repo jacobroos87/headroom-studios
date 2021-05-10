@@ -33,7 +33,7 @@ h4 {
 }
 
 p {
-    font-size: clamp(1.1rem, -0.675rem + 5.333333vw, 1.3rem);
+    font-size: clamp(1.1rem, -0.675rem + 5.333333vw, 1.2rem);
 }
 
 /*------ Navbar Styling -----*/

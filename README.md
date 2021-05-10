@@ -370,6 +370,8 @@ Check all user stories implemented | ✅ | ✅ | ✅ | ✅
 
 ### Known errors
 
+There is an error where the faded quotes that appear over the hero-img stack and display more than one if you leave the browser tab and later return.  This then goes away and returns to just one quote when the timeout function repeats. I haven't found a solution to this error but from the research I've done it seems like the browser changes the way some JS displays if the tab is inactive.
+
 # DevTools
 
 Chrome Devtools was used during the development process and used extensively for testing. All devices were checked for functionality and visual errors. It was also used to target certain elements of the site to check changes before adding them to the code.
@@ -389,3 +391,79 @@ The only error returned here was that I used margin:revert which I swapped out f
 * JS was validated using [jshint JS Markup Validation Service](https://jshint.com/)
 
 The JS validation returned some warnings due to the use of ES6 syntax which might not be compatible with older browsers. Other than this it was mainly a few missing semicolons.
+
+# User Story Testing
+
+#### As a visitor to the site I want to be able to clearly see the purpose of the site and services offered
+
+* On arriving to the site the logo is eye catching and the image gives the right impression for the purpose of the website
+* The quotes from previous clients are relevant and gives the impression of a successful and modern facility
+* The links at the top are all relevant and applicable to the services offered
+* Once scrolling down on the home page there is a short introduction that clarifies the facilities offered and how the system works
+
+#### As a visitor I'd like the navigation to be simple and easy to follow.
+
+* The navigation links are clearly visible and there are no broken links
+* There aren't too many links and the hover effects add some colour to the site and improve UX
+* The central position of the links works well with the layout of the site
+
+#### As a visitor I want the site to be visually appealing and have a relevant colour scheme.
+
+* The colours are simple and modern with a lot of contrast making all the text content easy to read
+* The vibrance of the orange adds a nice touch and works well with the teal green
+
+#### As a visitor I want to be able to see photos of the rehearsal facilities and know their cost per hour.
+
+* Upon reaching the rehearsal rooms page it is clear there are 3 studios and I'm able to see a number of images to better inform my booking decision
+* Each studio has a small description giving more information on the vibe and also includes the ourly price which is highlighted for clarity
+
+#### As a visitor I would like to be able to connect with the local community.
+
+* When landing on the notice board page I can see all the posts made by users and their relevant catagories 
+* I'm directed to sign up and once logged in there is a clear user icon with an extended nav menu allowing me to add a post of my own
+* If I find an add that's relevant to me then I'm also able to contact them via email by clicking the mail icon next to the post
+
+#### As a visitor I would like to be able to make bookings and check availability.
+
+* Once registered I have a bookings tab added to my user menu where I can check availability and add a booking of my own
+* The forms give me relevant feedback and the availability checker speeds up the process if I want to check a few dates that work with my colleagues  
+
+#### As a visitor I want to be able to edit my booking.
+
+* If I want to make a change to my booking I can do so on my profile page
+* There are two clear icons to either delete my booking or do edit it
+* The edit page has some of the key information pre-filled which speeds up the process 
+* I also get feedback for any dates and times that clash with existing bookings
+
+#### As a visitor I want to be able to post on the notice board and edit that post if required.
+
+* Once logged in I'm able to add my own post to the community notice board
+* I can also edit or delete my posts on the notice board page with the added buttons that become visible next to my post
+
+#### As a visitor I want to have feedback so I know wether my booking or post has been successful.
+
+* When making a bookings or adding a post I get a flash message once either my booking or post has been successful or not
+* When a booking wasn't possible I'm told why and redirected to the bookings page to make changes 
+
+#### As a returning visitor I want to be able to see my active bookings and their relative information.
+
+* When the time comes to check my active bookings I can simply log in and head to my profile page where the bookings are displayed
+* All bookings are displayed in date order so I clearly know which booking is the soonest
+
+#### As a returning visitor I want to be able to update or remove my post on the community notice board.
+
+* When returning to the notice board, once logged in I can see the edit and delete Icons next to my post
+* This speeds up the process for if I've either sold and item or found what I was looking for within the community
+* I'm informed during the edit and delete processes whether they've been successful or not
+
+# User Testing 
+
+## My Mentor (Dick Vlaanderen)
+
+When using the site my mentor mentioned that the original font was a little hard to read so I changed the overall font to the PT-sans style. This change greatly imoproved the user experience while still working aesthetically with the site.
+
+## A Fellow Code Institue Student
+
+The site was thouroughly tested by a fellow CI student and some valueble feedback given which was implemented to improve the UX.  
+
+[Back to top](#table-of-contents)

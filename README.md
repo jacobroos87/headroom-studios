@@ -306,3 +306,86 @@ I chose to do this as a project due to a close friend owning a rehearsal studio 
     * Used to send contact form submission data to developer and response to the user
 
 [Back to top](#table-of-contents)
+
+# Testing
+
+## Manual Testing
+
+### Testing was done using the following browsers:
+
+* Google Chrome
+* Safari
+* Firefox
+
+### Devices used:
+
+*Only Google Chrome and Safari were used for testing on the below devices*
+
+* Iphone 7
+* Ipad 3rd Generation 
+
+### Functionality Checklist
+
+UI Test Description | Desktop | Laptop | Ipad | Iphone 
+|-------|---------|--------|------|-----------
+Live site loads on all devices | ✅ | ✅ | ✅ | ✅ 
+Images display correctly | ✅ | ✅ | ✅ | ✅  
+Text is formatted as expected | ✅ | ✅ | ✅ | ✅ 
+Hover effects work | ✅ | ✅ | ✅ | ✅ 
+Check to see if navbar collapses on smaller devices | ✅ | ✅ | ✅ | ✅ 
+User dropdown link appears in navbar when logged in | ✅ | ✅ | ✅ | ✅ 
+Hero Img quotes display and fade smoothly | ✅ | ✅ | ✅ | ✅ 
+Contact link scrolls to relevant position | ✅ | ✅ | ✅ | ✅  
+The contact form displays correct predicted inputs | ✅ | ✅ | ✅ | ✅ 
+Contact form displays required fields if not filled in | ✅ | ✅ | ✅ | ✅ 
+Contact form does not submit if fields aren't filled in | ✅ | ✅ | ✅ | ✅ 
+Contact form modal displays on successful submission | ✅ | ✅ | ✅ | ✅ 
+Message is sent to developer email address | ✅ | ✅ | ✅ | ✅ 
+Auto-reply is sent to user | ✅ | ✅ | ✅ | ✅ 
+Social links are visible and sized appropriately | ✅ | ✅ | ✅ | ✅ 
+Footer is visible and sized appropriately | ✅ | ✅ | ✅ | ✅ 
+Subscribe displays correct flash messages and adds email to db | ✅ | ✅ | ✅ | ✅
+Images on rehearsal studio page loads and resized for smaller devices | ✅ | ✅ | ✅ | ✅ 
+Notice board displays correctly | ✅ | ✅ | ✅ | ✅
+Edit and delete buttons display for session user posts | ✅ | ✅ | ✅ | ✅
+Pagination increases after 6 posts | ✅ | ✅ | ✅ | ✅
+All relevant flash messages/modals display for edit and delete posts | ✅ | ✅ | ✅ | ✅
+The mail icon input the correct user email | ✅ | ✅ | ✅ | ✅
+FAQ page collapsible loads and resizes for smaller devices | ✅ | ✅ | ✅ | ✅
+Bookings page forms display correctly | ✅ | ✅ | ✅ | ✅
+Availablity checker works correctly and flashes correct messages | ✅ | ✅ | ✅ | ✅
+Booking form displays correct error and confirmation flash messages | ✅ | ✅ | ✅ | ✅
+Confirmed bookings redirect to profile and displays correctly | ✅ | ✅ | ✅ | ✅
+Profile page displays session user bookings | ✅ | ✅ | ✅ | ✅
+Admin page displays all bookings | ✅ | ✅ | ✅ | ✅
+Both Admin and profile page display bookings in date order | ✅ | ✅ | ✅ | ✅
+Both Admin and profile page display out of date bookings in red | ✅ | ✅ | ✅ | ✅
+Add post page displays form correctly | ✅ | ✅ | ✅ | ✅
+Add post page prevents submission if required fields aren't completed | ✅ | ✅ | ✅ | ✅
+Add post page redirects to notice board and displays post | ✅ | ✅ | ✅ | ✅
+Log Out removes the session user and redirects to the home page | ✅ | ✅ | ✅ | ✅
+All flash messages display correctly | ✅ | ✅ | ✅ | ✅
+All columns collapse as they should for smaller devices | ✅ | ✅ | ✅ | ✅
+Check all user stories implemented | ✅ | ✅ | ✅ | ✅ 
+
+### Known errors
+
+# DevTools
+
+Chrome Devtools was used during the development process and used extensively for testing. All devices were checked for functionality and visual errors. It was also used to target certain elements of the site to check changes before adding them to the code.
+
+The console was used to support the development process of the website JavaScript. All errors were satisfied and the project currently has none outstanding.
+
+# Automated testing
+
+* HTML was validated using [W3C HTML Markup Validation Service](https://validator.w3.org/)
+
+The validation came back with minor issues including an error as I had a href within an < i > tag which I changed and wrapped in an < a > tag.
+
+* CSS was validated using [W3C CSS Markup Validation Service](https://jigsaw.w3.org/css-validator/)
+
+The only error returned here was that I used margin:revert which I swapped out for a flex display with all content aligned in the center and then added a custom margin-top.
+
+* JS was validated using [jshint JS Markup Validation Service](https://jshint.com/)
+
+The JS validation returned some warnings due to the use of ES6 syntax which might not be compatible with older browsers. Other than this it was mainly a few missing semicolons.

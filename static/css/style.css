@@ -458,6 +458,10 @@ ul.collapsible {
 }
 /*------ Notice Board -----*/
 
+p.scroll {
+    font-size: clamp(1rem, -0.675rem + 5.333333vw, 1.1rem);
+}
+
 .collection .collection-item.avatar p {
     margin: 25px 0px;
 }

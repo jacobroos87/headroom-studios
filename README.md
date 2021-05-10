@@ -467,3 +467,93 @@ When using the site my mentor mentioned that the original font was a little hard
 The site was thouroughly tested by a fellow CI student and some valueble feedback given which was implemented to improve the UX.  
 
 [Back to top](#table-of-contents)
+
+# Deployment
+
+### Heroku Deployment
+
+* [LIVE SITE](###)
+    * Below is a step by step for the hosting process:
+       
+    1. Set *_debug=False_* in the app.py file.
+    2. Create a requirements.txt file using *_pip3 freeze --local > requirements.txt_* in the terminal.  This tells heroku what dependencies the app has to run. In the case of Headroom Studios the requirements filre contained the following:
+        * click==7.1.2
+        * dnspython==2.1.0
+        * Flask==1.1.2
+        * Flask-PyMongo==2.3.0
+        * itsdangerous==1.1.0
+        * pymongo==3.11.3
+        * Werkzeug==1.0.1
+    3. Create a Procfile using the *_echo web: python app.py > Procfile_* command in the terminal so Heroku knows which file runs the app.
+    4. Create a new Heroku app: *headroom-studios* and set its region to Europe.
+    5. Set up automatic deployment by linking the newly created app to the github repository.  This is done by selecting the "Connect to Github" in the deploy menu then adding the repo name and selecting it for deployment.
+    6. The next step is to add the app environment variables.  This is done by going to the *Reveal Config Vars* section and copying over the variables from the app *env(dot)py* file ensuring not to use any quotations.
+        *  *IP* 
+        *  *PORT*
+        * *SECRET_KEY*
+        * *MONGO_URI*
+        * *MONGO_DBNAME*
+    7. The *Enable Automatic Deploys* button was activated, ensuring that all app commits are up to date on the master branch before doing this.
+    8. The Branch is then deployed and the app uploaded
+    9. Once this is complete you can press the view button under the window to see the deployed site
+    10. Due to the app being connected to the GitHub repo any code pushed to github will automatically update on the live site
+
+
+## Local Deployment 
+
+* Login to Github and select the project repository.
+* Click on the Gitpod dropdown and download the files as a ZIP.
+* Ensure that Git software is installed locally.
+* Expand the ZIP file and double click the index.html file
+
+The project can also be cloned within the terminal using git clone. For more information on using git clone you can click [HERE](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+
+[Back to top](#table-of-contents)
+
+# Credits 
+
+## Content       
+
+All content on the site was designed and written by myself 
+
+## Media
+
+The Hero img was sourced from [Shutterstock](www.shutterstock.com). 
+General search terms were music studio & rehearsal space.
+The files were downloaded as high resolution JPEG files and then resized for their various applications 
+
+The studio images were provided by a friend who runs a rehearsal studio [Glasshouse Studios](http://glasshousestudios.org/).
+These files were downloaded as JPEG files directly from the wesbite and then resized for their various applications 
+
+## Acknowledgements
+
+I've had excellent support from my Mentor Dick Vlaanderen and also from the code institute tutors.
+The slack community has also been very helpful for feedback and support.
+
+## Online and Physical
+
+### Websites
+
+* [Stack Overflow](https://stackoverflow.com/)
+* [W3schools](https://www.w3schools.com/)
+* [CSS-Tricks](https://css-tricks.com/)
+* [Full Stack Python](https://www.fullstackpython.com/)
+
+
+ ### YouTube Channels
+
+* [Dev Ed](https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q)
+* [DesignCourse](https://www.youtube.com/user/DesignCourse)
+* [The Coding Train](https://www.youtube.com/user/shiffman)
+* [Corey Schafer](https://www.youtube.com/user/schafer5)
+
+
+### Books
+
+* Head First HTML & CSS - *O'reilly*
+* Head First Javascript Programming - *O'reilly*
+* JavaScript Testing with Jasmine - *O'reilly*
+* Learn Python In One Day - *Jamie Chan*
+* Flask Web Development - *Miguel Grinberg*
+
+[Back to top](#table-of-contents)

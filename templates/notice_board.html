@@ -4,20 +4,36 @@
 {% block content %}
 
 <div class="container">
-    <h4 class="black-text center align" id="notice-board">Notice Board</h4>
-    <div class="divider"></div>
+    <div class="row">
+        <div class="col s12 m10 offset-m1">
+            <h4 class="black-text center align" id="notice-board">Notice Board</h4>
+            <div class="divider"></div>
 
-    <h5 class="center-align">Welcome to our community Notice Board!</h5>
-    <p class="center-align">If you'd like to post something then you'll need to make a user account through our <a
-            href="#modal1" class="modal-trigger">Registration Form</a></p>
-    <p class="center-align">Once you've signed up you'll see a new user dropdown appear in the navbar. Here you will be able to
-        add a post from the link in the menu which will be added to the notice board!
-    </p>
-    <p class="center-align">If you'd like to update your post you'll be able to
-        do so using the edit and delete icons at the bottom of your post.</p>
+            <h5 class="center-align">Welcome to our community Notice Board!</h5>
+            {% if session.user %}
+            <p class="center-align">
+                Here you will find all the latest posts from our extended community.
+                If you have any items for sale or want to post a job or community event then get involved!
+                We're always looking for more ways to grow our network and we've helped many bands/artists get local
+                shows
+                to promote
+                releases.
+                From time to time we will post under the Admin username if we're hosting events or workshops, so be sure
+                to check in regularly for updates!
+            </p>
+            {% else %}
+            <p class="center-align">
+                If you'd like to post something then you'll need to make a user account through our <a href="#modal1"
+                    class="modal-trigger">Registration Form.</a> Once you've signed up you'll see a
+                new user dropdown appear in the navbar. Here you will be able to
+                add a post from the link in the menu which will be added to the notice board!
+            </p>
+            <p class="center-align">If you'd like to update your post you'll be able to
+                do so using the edit and delete icons at the bottom of your post.</p>
+            {% endif %}
+        </div>
+    </div>
 </div>
-
-
 {% if posts|length > 0 %}
 
 
@@ -33,7 +49,8 @@
                 <h6>Are you sure you want to delete your post?</h6>
             </div>
             <div class="modal-footer">
-                <a href="{{ url_for('delete_post', post_id=post._id)}}"><i class="fas btn-small red fa-trash-alt" title="Delete"></i></a>
+                <a href="{{ url_for('delete_post', post_id=post._id)}}"><i class="fas btn-small red fa-trash-alt"
+                        title="Delete"></i></a>
                 <a href="#!" class="modal-close"><i class="fas btn-small fa-times-circle" title="Cancel"></i></a>
             </div>
         </div>

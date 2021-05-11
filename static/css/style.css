@@ -36,10 +36,16 @@ p {
     font-size: clamp(1rem, -0.675rem + 5.333333vw, 1.1rem);
 }
 
-/* Bug fix for certain input field labels not triggering animation */
+/*----- Bug fix for certain input field labels not triggering animation -----*/
 
 .input-field label {
     pointer-events: none;
+}
+
+/*------ Re-enabling pointer events for switch -----*/
+
+div.switch label {
+    pointer-events: all;
 }
 
 /*------ Navbar Styling -----*/

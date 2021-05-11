@@ -7,6 +7,7 @@ $(document).ready(function () {
     $('.modal').modal();
     $('.collapsible').collapsible();
     $('select').formSelect();
+    M.textareaAutoResize($('#post_message'));
 
     //  Changed calendar to not show dates in the past
 

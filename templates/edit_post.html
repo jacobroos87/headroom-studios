@@ -22,15 +22,20 @@
                     <h6>Category:</h6>
                     <p>
                         <label for="jobs">
-                            <input class="with-gap" id="jobs" value="jobs" name="category" type="radio" checked />
+                            <input class="with-gap" id="jobs" value="jobs" name="category" type="radio"
+                                {% if post.category == "jobs" %}checked{% endif %}>
                             <span>Jobs</span>
                         </label>
+
                         <label for="for-sale">
-                            <input class="with-gap" id="for-sale" value="for-sale" name="category" type="radio" />
+                            <input class="with-gap" id="for-sale" value="for-sale" name="category" type="radio"
+                                {% if post.category == "for-sale" %}checked{% endif %} />
                             <span>For Sale</span>
                         </label>
+
                         <label for="community">
-                            <input class="with-gap" id="community" value="community" name="category" type="radio" />
+                            <input class="with-gap" id="community" value="community" name="category" type="radio"
+                                {% if post.category == "community" %}checked{% endif %} />
                             <span>Community</span>
                         </label>
                     </p>
@@ -41,14 +46,14 @@
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix"></i>
                     <textarea id="post_message" name="post_message" minlength="5" maxlength="500"
-                        class="materialize-textarea validate" required></textarea>
+                        class="materialize-textarea validate" required>{{ post.post_message }}</textarea>
                     <label for="post_message">Message</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-envelope prefix"></i>
-                    <input id="email" name="email" type="email" class="validate" required>
+                    <input id="email" name="email" type="email" class="validate" value="{{ post.email }}" required>
                     <label for="email">Contact Email</label>
                 </div>
             </div>

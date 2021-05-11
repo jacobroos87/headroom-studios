@@ -229,7 +229,7 @@ nav .brand-logo {
 .icon-banner {
     background-color: #26a69a;
     margin: 35px 0px;
-    padding-bottom: 15px;
+    padding-bottom: 25px;
     width: 100%;
 }
 
@@ -267,6 +267,10 @@ nav .brand-logo {
     background-color: #ffab40 !important;
     margin-bottom: 15px !important;
     margin: auto;
+}
+
+.icon-banner .row {
+    margin-bottom: 0px;
 }
 
 /*------ Contact Form -----*/

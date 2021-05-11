@@ -8,12 +8,24 @@
 
 <div class="container">
     <div class="row center">
-        <p>If you would like to make a booking in one of our studios then head over to our
+        {% if session.user %}
+        <p>
+            Check out our 3 studios, all with a different vibe to set the mood for your rehearsal session!
+            We can provide extra amps and microphones if needed and we also have a few of the essential items
+            such as drum sticks and guitar strings for sale on presmises. Be sure to give us as much detail as possible
+            in the additional information section when making your booking, so we can ensure you have the best experience
+            at Headroom Studios.
+        </p>
+        {% else %}
+        <p>
+            If you would like to make a booking in one of our studios then head over to our
             <a href="#modal1" class="modal-trigger">Registration Form</a>.<br>
             Create an account and then head over to the bookings tab in your user options!<br>
             Any bookings you make will be viewable on your profile page and don't forget to check out<br>
             our <a href="{{ url_for('notice_board') }}">Notice Board</a> for local events, gear for sale and job
-            listings.</p>
+            listings.
+        </p>
+        {% endif %}
     </div>
 </div>
 

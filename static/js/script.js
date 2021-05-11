@@ -52,6 +52,12 @@ $(document).ready(function () {
         .appendTo('.quote-list');
         },  7000);
 
+    
+
+    // Copyright current year //
+
+    $("#copyright").text(new Date().getFullYear());
+
     // Initialisation for email.js
 
     (function () {

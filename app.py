@@ -386,28 +386,6 @@ def register():
     return render_template(url_for('home'))
 
 
-@app.route("/subscribe", methods=["GET", "POST"])
-# This function adds a user email to the Subscribers DB
-def subscribe():
-    if request.method == "POST":
-        # check if username exists in DB
-        existing_user = mongo.db.subscribers.find_one(
-            {"email": request.form.get("subscribe").lower()})
-
-        if existing_user:
-            flash(" You are already signed up for our newsletter!")
-            return redirect(url_for("home"))
-            
-        else:
-            signup = {
-                "email": request.form.get("subscribe").lower(),
-            }
-            # Add subscriber to DB
-            mongo.db.subscribers.insert_one(signup)
-            flash("You have successfully signed up to our mailinglist!")
-            return redirect(url_for("home"))
-
-
 @app.errorhandler(404)
 # This function renders the 404 error page if there's a 404 error
 def page_not_found(e):

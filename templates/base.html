@@ -55,7 +55,7 @@
                                 <!-- Switch -->
                                 <div class="switch">
                                     <label for="sign_up" class="valign-wrapper">
-                                        <input type="checkbox" id="sign_up" name="sign_up">
+                                        <input type="checkbox" id="sign_up" name="sign_up" checked>
                                         <span class="lever left"></span>
                                         <p>Subscribe To Our Newsletter</p>
                                     </label>
@@ -195,29 +195,7 @@
     <footer class="page-footer black">
         <div class="container">
             <div class="row">
-                <div class="col l4 m6 s12 center-align">
-                    <h5 class="white-text">Subscribe:</h5>
-                    <div class="row">
-                        <form action="{{ url_for('subscribe') }}" method="POST">
-                            <div class="input-field col s12">
-                                <input id="subscribe" type="email" name="subscribe" class="validate white-text"
-                                    required>
-                                <label for="subscribe">Email</label>
-                            </div>
-                            <div class="input-field col s12">
-                                <button class="btn-small waves-effect waves-light" type="submit" name="action">Submit
-                                    <i class="fas fa-paper-plane right "></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col l4 m6 s12 center-align">
-                    <h5>Address:</h5>
-                    <p>34 Headroom Road<br>Chippenham<br>Wiltshire<br>SN15 1HR</p>
-                </div>
-
-                <div class="col l4 m12 s12 center-align">
+                <div class="col s12 center-align">
                     <ul class="social-links">
                         <li><a class="grey-text text-lighten-3 z-depth-3" href="https://www.facebook.com/"
                                 target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>

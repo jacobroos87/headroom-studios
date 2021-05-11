@@ -204,8 +204,10 @@ def new_booking():
     if request.method == "POST":
         # Checks if another booking exists with same details
         existing_booking = mongo.db.bookings.find_one(
-            {"studio": request.form.get("studio"), "date": request.form.get(
-                "booking-date"), "slot": request.form.get("time-slot")})
+            {"studio": request.form.get("studio"), "date": datetime.strptime(
+                request.form.get(
+                    "booking-date"), '%d %b %Y'), "slot": request.form.get(
+                        "time-slot")})
         if existing_booking:
             flash("Booking unsuccessful check availability before booking")
             return redirect(url_for("bookings"))
@@ -226,19 +228,6 @@ def new_booking():
             "profile", username=session["user"], today=today))
 
     return render_template("bookings.html")
-
-
-@app.route("/admin/<username>", methods=["GET", "POST"])
-# This function renders the Admin Page
-def admin(username):
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    # All active bookings added to variable
-    bookings = list(mongo.db.bookings.find())
-    if session["user"]:
-        return render_template(
-            "admin.html", username=username,
-            bookings=bookings, today=today)
 
 
 @app.route("/edit_booking/<booking_id>", methods=["GET", "POST"])
@@ -353,6 +342,19 @@ def profile(username):
         return render_template(
             "profile.html", username=username, bookings=bookings, today=today)
     return redirect(url_for("login"))
+
+
+@app.route("/admin/<username>", methods=["GET", "POST"])
+# This function renders the Admin Page
+def admin(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    # All active bookings added to variable
+    bookings = list(mongo.db.bookings.find())
+    if session["user"]:
+        return render_template(
+            "admin.html", username=username,
+            bookings=bookings, today=today)
 
 
 @app.route("/register", methods=["GET", "POST"])

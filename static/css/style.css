@@ -503,6 +503,7 @@ ul.collapsible {
 .tabs .tab {
     width: 40px;
     margin: 0 8px;
+    font-size: 12px;
 }
 
 .card-tabs .tabs {

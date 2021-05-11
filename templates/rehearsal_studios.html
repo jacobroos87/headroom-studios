@@ -8,11 +8,12 @@
 
 <div class="container">
     <div class="row center">
-        <p>If you would like to make a booking in one of our studios then head over to our 
+        <p>If you would like to make a booking in one of our studios then head over to our
             <a href="#modal1" class="modal-trigger">Registration Form</a>.<br>
             Create an account and then head over to the bookings tab in your user options!<br>
             Any bookings you make will be viewable on your profile page and don't forget to check out<br>
-        our <a href="{{ url_for('notice_board') }}">Notice Board</a> for local events, gear for sale and job listings.</p>
+            our <a href="{{ url_for('notice_board') }}">Notice Board</a> for local events, gear for sale and job
+            listings.</p>
     </div>
 </div>
 
@@ -224,8 +225,20 @@
                         The hourly rate for this studio is <span class="price">£15</span>
                     </p>
                 </div>
-                <div class="card-action">
-                    <a class="modal-trigger" href="#studio1">More Images</a>
+                <div class="card-action center">
+                    <a class="modal-trigger btn-small waves-effect" href="#studio3">More Images<i
+                            class="far fa-image right "></i></a>
+                </div>
+                <div class="card-action center">
+                    {% if session.user %}
+                    <a class="btn-small waves-effect waves-light" href="{{ url_for('bookings') }}" type="submit"
+                        name="action">Make a Booking<i class="fas fa-calendar-alt right "></i>
+                    </a>
+                    {% else %}
+                    <a class="btn-small waves-effect waves-light" href="{{ url_for('login', today=today) }}"
+                        type="submit" name="action">Make a Booking<i class="fas fa-calendar-alt right "></i>
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -238,12 +251,25 @@
                 <div class="card-content">
                     <p>
                         Studio two has a different decor and all of our slightly heavier sounding regulars love it!
-                        The room has a tight sound but still has ample space for comfort. The hourly rate for this studio
+                        The room has a tight sound but still has ample space for comfort. The hourly rate for this
+                        studio
                         is <span class="price">£10</span>
                     </p>
                 </div>
-                <div class="card-action">
-                    <a class="modal-trigger" href="#studio2">More Images</a>
+                <div class="card-action center">
+                    <a class="modal-trigger btn-small waves-effect" href="#studio3">More Images<i
+                            class="far fa-image right "></i></a>
+                </div>
+                <div class="card-action center">
+                    {% if session.user %}
+                    <a class="btn-small waves-effect waves-light" href="{{ url_for('bookings') }}" type="submit"
+                        name="action">Make a Booking<i class="fas fa-calendar-alt right "></i>
+                    </a>
+                    {% else %}
+                    <a class="btn-small waves-effect waves-light" href="{{ url_for('login', today=today) }}"
+                        type="submit" name="action">Make a Booking<i class="fas fa-calendar-alt right "></i>
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -264,23 +290,24 @@
                         The hourly rate for this studio is <span class="price">£10</span>
                     </p>
                 </div>
-                <div class="card-action">
-                    <a class="modal-trigger" href="#studio3">More Images</a>
+                <div class="card-action center">
+                    <a class="modal-trigger btn-small waves-effect" href="#studio3">More Images<i
+                            class="far fa-image right "></i></a>
+                </div>
+                <div class="card-action center">
+                    {% if session.user %}
+                    <a class="btn-small waves-effect waves-light" href="{{ url_for('bookings') }}" type="submit"
+                        name="action">Make a Booking<i class="fas fa-calendar-alt right "></i>
+                    </a>
+                    {% else %}
+                    <a class="btn-small waves-effect waves-light" href="{{ url_for('login', today=today) }}"
+                        type="submit" name="action">Make a Booking<i class="fas fa-calendar-alt right "></i>
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="col s12 center-align space">
-    {% if session.user %}
-    <a class="btn-small waves-effect waves-light" href="{{ url_for('bookings') }}" type="submit" name="action">Make a
-        booking<i class="fas fa-calendar-alt right "></i>
-    </a>
-    {% else %}
-    <a class="btn-small waves-effect waves-light" href="{{ url_for('login', today=today) }}" type="submit" name="action">Make a booking<i
-            class="fas fa-calendar-alt right "></i>
-    </a>
-    {% endif %}
 </div>
 
 {% endblock %}

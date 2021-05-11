@@ -364,12 +364,6 @@ I decided to add a user icon to the navbar with a dropdown once the user is logg
 3. email - string
 4. password - string (hashed password)
 
-
-## Subscribers
-
-1. ObjectId - (created by mongoDB)
-2. email - string
-
 [Back to top](#table-of-contents)
 
 # Future Features

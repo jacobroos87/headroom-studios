@@ -361,6 +361,7 @@ def admin(username):
 # This function is linked to the Registration Form
 def register():
     if request.method == "POST":
+        sign_up = "yes" if request.form.get("sign_up") else "no"
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -372,7 +373,8 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "email": request.form.get("email").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "subscribe": sign_up
         }
         # Add new user to MongoDB
         mongo.db.users.insert_one(register)

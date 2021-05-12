@@ -256,7 +256,8 @@ def edit_booking(booking_id):
         if request.method == "POST":
             # Checks if the booking exists
             existing_booking = mongo.db.bookings.find_one(
-                {"studio": request.form.get("studio"), "date": request.form.get(
+                {"studio": request.form.get(
+                    "studio"), "date": request.form.get(
                     "booking-date"), "slot": request.form.get("time-slot")})
             if existing_booking:
                 flash("Update unsuccessful check availability before booking")
@@ -371,15 +372,20 @@ def delete_post(post_id):
 @app.route("/profile/<username>", methods=["GET", "POST"])
 # This function renders the Profile page
 def profile(username):
-    # grab session user's username from the database
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    # Variable to hold current bookings
-    bookings = list(mongo.db.bookings.find())
-    if session["user"]:
-        return render_template(
-            "profile.html", username=username, bookings=bookings, today=today)
-    return redirect(url_for("login"))
+    try:
+        if session["user"]:
+            # grab the session users username from the db
+            username = mongo.db.users.find_one(
+                {"username": session["user"]})["username"]
+            # Variable to hold current bookings
+            bookings = list(mongo.db.bookings.find())
+            return render_template(
+                "profile.html", username=username, bookings=bookings,
+                today=today)
+
+    except KeyError:
+        flash("You need to be logged in to access the Profile page")
+        return redirect(url_for("login"))
 
 
 @app.route("/admin/<username>", methods=["GET", "POST"])

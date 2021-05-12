@@ -90,10 +90,10 @@
 <div class="container">
     <div class="row center-align">
         <div class="pagination">
-            <a href="{{ url_for('prev_page', current_page=current_page) }}"><i
+            <a href="{{ url_for('prev_page', current_page=current_page, _anchor='notice-board') }}"><i
                     class="fas fa-chevron-left z-depth-1"></i></a>
             <p>{{ current_page }} of {{ number_of_pages }}</p>
-            <a href="{{ url_for('next_page', current_page=current_page, number_of_pages=number_of_pages) }}"><i
+            <a href="{{ url_for('next_page', current_page=current_page, number_of_pages=number_of_pages, _anchor='notice-board') }}"><i
                     class="fas fa-chevron-right z-depth-1"></i></a>
         </div>
     </div>

@@ -25,6 +25,7 @@ today = datetime.now()
 
 # App Routes
 
+
 @app.route("/")
 @app.route("/home")
 # This function renders the home page
@@ -151,7 +152,7 @@ def check_availability():
     if request.method == "POST":
         # check if booking already exists in db
         date = datetime.strptime(
-                request.form.get("date"), '%d %b %Y')
+            request.form.get("date"), '%d %b %Y')
         date_formatted = request.form.get("date")
         slot = request.form.get("slot")
 
@@ -238,31 +239,42 @@ def new_booking():
 @app.route("/edit_booking/<booking_id>", methods=["GET", "POST"])
 # This function renders the Edit Booking Page
 def edit_booking(booking_id):
-    if request.method == "POST":
-        # Checks if the booking exists
-        existing_booking = mongo.db.bookings.find_one(
-            {"studio": request.form.get("studio"), "date": request.form.get(
-                "booking-date"), "slot": request.form.get("time-slot")})
-        if existing_booking:
-            flash("Update unsuccessful check availability before booking")
-            return redirect(url_for("bookings"))
-        # Information added to database
-        submit = {
-            "studio": request.form.get("studio"),
-            "date": datetime.strptime(
-                request.form.get("booking-date"), '%d %b %Y'),
-            "slot": request.form.get("time-slot"),
-            "contact_name": request.form.get("contact_name"),
-            "additional_info": request.form.get("additional_info"),
-            "created_by": session["user"]
-        }
-        # Updates information on the database
-        mongo.db.bookings.update({"_id": ObjectId(booking_id)}, submit)
-        flash("Booking Successfully Updated")
-        return redirect(url_for("profile", username=session["user"]))
+    try:
+        if session["user"]:
+            # grab the session users username from the db
+            username = mongo.db.users.find_one(
+                {"username": session["user"]})["username"]
+            booking = mongo.db.bookings.find_one({"_id": ObjectId(booking_id)})
+            return render_template(
+                "edit_booking.html", booking=booking, username=username)
 
-    booking = mongo.db.bookings.find_one({"_id": ObjectId(booking_id)})
-    return render_template("edit_booking.html", booking=booking)
+    except KeyError:
+        flash("You need to be logged in to edit a booking.")
+        return redirect(url_for("login"))
+
+    finally:
+        if request.method == "POST":
+            # Checks if the booking exists
+            existing_booking = mongo.db.bookings.find_one(
+                {"studio": request.form.get("studio"), "date": request.form.get(
+                    "booking-date"), "slot": request.form.get("time-slot")})
+            if existing_booking:
+                flash("Update unsuccessful check availability before booking")
+                return redirect(url_for("bookings"))
+            # Information added to database
+            submit = {
+                "studio": request.form.get("studio"),
+                "date": datetime.strptime(
+                    request.form.get("booking-date"), '%d %b %Y'),
+                "slot": request.form.get("time-slot"),
+                "contact_name": request.form.get("contact_name"),
+                "additional_info": request.form.get("additional_info"),
+                "created_by": session["user"]
+            }
+            # Updates information on the database
+            mongo.db.bookings.update({"_id": ObjectId(booking_id)}, submit)
+            flash("Booking Successfully Updated")
+            return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/delete_booking/<booking_id>")
@@ -289,7 +301,7 @@ def add_post():
             username = mongo.db.users.find_one(
                 {"username": session["user"]})["username"]
             return render_template("add_post.html", username=username)
-            
+
     except KeyError:
         flash("You need to be logged in to add a post.")
         return redirect(url_for("login"))
@@ -317,24 +329,35 @@ def add_post():
 @app.route("/edit_post/<post_id>", methods=["GET", "POST"])
 # This function edits an active post
 def edit_post(post_id):
-    if request.method == "POST":
-        is_urgent = "on" if request.form.get("is_urgent") else "off"
-        submit = {
-            "post_title": request.form.get("post_title"),
-            "post_message": request.form.get("post_message"),
-            "category": request.form.get("category"),
-            "is_urgent": is_urgent,
-            "created_by": session["user"],
-            "email": request.form.get("email"),
-            "date_posted": today
-        }
-        # Updates submitted information on MongoDB
-        mongo.db.posts.update({"_id": ObjectId(post_id)}, submit)
-        flash("Post Successfully Updated")
-        return redirect(url_for("notice_board"))
+    try:
+        if session["user"]:
+            # grab the session users username from the db
+            username = mongo.db.users.find_one(
+                {"username": session["user"]})["username"]
+            post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
+            return render_template(
+                "edit_post.html", post=post, username=username)
 
-    post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
-    return render_template("edit_post.html", post=post)
+    except KeyError:
+        flash("You need to be logged in to edit a post.")
+        return redirect(url_for("login"))
+
+    finally:
+        if request.method == "POST":
+            is_urgent = "on" if request.form.get("is_urgent") else "off"
+            submit = {
+                "post_title": request.form.get("post_title"),
+                "post_message": request.form.get("post_message"),
+                "category": request.form.get("category"),
+                "is_urgent": is_urgent,
+                "created_by": session["user"],
+                "email": request.form.get("email"),
+                "date_posted": today
+            }
+            # Updates submitted information on MongoDB
+            mongo.db.posts.update({"_id": ObjectId(post_id)}, submit)
+            flash("Post Successfully Updated")
+            return redirect(url_for("notice_board"))
 
 
 @app.route("/delete_post/<post_id>")

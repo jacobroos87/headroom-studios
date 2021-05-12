@@ -3,12 +3,15 @@
 {% block nav_rs_mobile %}active{% endblock %}
 {% block content %}
 
+<!-- Rehearsal Studios page -->
+
 <h4 class="black-text center align" id="rehearsal-studios">Rehearsal Studios</h4>
 <div class="divider"></div>
 
 <div class="container">
     <div class="row center">
         <div class="col s12 m10 offset-m1">
+            <!-- Rehearsal Studios blurb that changes if a user is logged in -->
             {% if session.user %}
             <p>
                 Check out our 3 studios, all with a different vibe to set the mood for your rehearsal session!
@@ -32,6 +35,7 @@
         </div>
     </div>
 </div>
+<!-- Materialize image modal containers -->
 <div class="container">
     <div id="studio1" class="modal">
         <div class="modal-content">
@@ -225,7 +229,7 @@
         </div>
     </div>
 
-
+    <!-- Studio cards with added information and links -->
     <div class="row">
         <div class="col s12 m4">
             <div class="card">
@@ -246,6 +250,7 @@
                 </div>
                 <div class="card-action center">
                     {% if session.user %}
+                    <!-- Changes the link destination if user is logged in -->
                     <a class="btn-small waves-effect waves-light" href="{{ url_for('bookings') }}" type="submit"
                         name="action">Make a Booking<i class="fas fa-calendar-alt right "></i>
                     </a>

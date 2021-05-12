@@ -4,6 +4,8 @@
 {% block nav_dropdown %}active{% endblock %}
 {% block content %}
 
+<!-- Admin page -->
+
 <div class="row">
     <div class="col s12 m8 offset-m2">
         <div class="card-panel">
@@ -20,6 +22,7 @@
 <div class="container">
     <h5 class="center-align">Active Bookings:</h5>
     <div class="row">
+        <!-- Sorts bookings by date attribute -->
         {% for booking in bookings|sort(attribute='date') %}
 
         <!-- Delete Booking Modal -->
@@ -32,7 +35,7 @@
                 <a href="#!" class="modal-close"><i class="fas btn-small fa-times-circle" title="Cancel"></i></a>
             </div>
         </div>
-
+        <!-- Bookings card loop -->
         <div class="card small col l4 m6 s12">
             <div class="card-content">
                 <a href="#delete-booking-modal" class="modal-trigger"><i class="fas fa-trash-alt right" title="Delete"></i></a>
@@ -49,6 +52,7 @@
             </div>
             <div class="card-content details">
                 <ul class="tabs tabs-fixed-width grey lighten-4">
+                    <!-- Jinja to change booking date colour to RED if out of date -->
                     {% if booking.date < today %}
                             <li class="tab out-of-date">{{ booking.date.strftime('%b %d, %Y') }}</li>
                         {% else %}

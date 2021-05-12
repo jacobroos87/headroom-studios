@@ -142,6 +142,7 @@ def bookings():
         if session["user"]:
             return render_template("bookings.html")
     except KeyError:
+    # Redirects if someone tries to use a direct link while not signed in
         flash("You need to be logged in to make a booking")
         return redirect(url_for("login"))
 
@@ -250,6 +251,7 @@ def edit_booking(booking_id):
                 "edit_booking.html", booking=booking, username=username)
 
     except KeyError:
+        # Redirects if someone tries to use a direct link while not signed in
         flash("You need to be logged in to edit a booking.")
         return redirect(url_for("login"))
 
@@ -257,10 +259,11 @@ def edit_booking(booking_id):
         if request.method == "POST":
             # Checks if the booking exists
             existing_booking = mongo.db.bookings.find_one(
-            {"studio": request.form.get("studio"), "date": datetime.strptime(
-                request.form.get(
-                    "booking-date"), '%d %b %Y'), "slot": request.form.get(
-                        "time-slot")})
+                {"studio": request.form.get(
+                    "studio"), "date": datetime.strptime(
+                    request.form.get(
+                        "booking-date"), '%d %b %Y'), "slot": request.form.get(
+                            "time-slot")})
             if existing_booking:
                 flash("Update unsuccessful check availability before booking")
                 return redirect(url_for("bookings"))
@@ -306,6 +309,7 @@ def add_post():
             return render_template("add_post.html", username=username)
 
     except KeyError:
+        # Redirects if someone tries to use a direct link while not signed in
         flash("You need to be logged in to add a post.")
         return redirect(url_for("login"))
 
@@ -342,6 +346,7 @@ def edit_post(post_id):
                 "edit_post.html", post=post, username=username)
 
     except KeyError:
+        # Redirects if someone tries to use a direct link while not signed in
         flash("You need to be logged in to edit a post.")
         return redirect(url_for("login"))
 
@@ -386,6 +391,7 @@ def profile(username):
                 today=today)
 
     except KeyError:
+        # Redirects if someone tries to use a direct link while not signed in
         flash("You need to be logged in to access the Profile page")
         return redirect(url_for("login"))
 
@@ -403,6 +409,7 @@ def admin(username):
                 "admin.html", username=username,
                 bookings=bookings, today=today)
     except KeyError:
+        # Redirects if someone tries to use a direct link while not signed in
         flash("You need to be logged in to access the Admin page")
         return redirect(url_for("login"))
 

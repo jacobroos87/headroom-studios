@@ -4,6 +4,8 @@
 {% block nav_dropdown %}active{% endblock %}
 {% block content %}
 
+<!-- Profile page -->
+
 <div class="row center-align">
     <div class="container">
         <div class="card-panel">
@@ -16,57 +18,61 @@
 </div>
 
 {% if bookings|length > 0 %}
-
+<!-- Bookings loop -->
 <div class="container">
     <h4 class="center-align">Active Bookings:</h4>
     <div class="row">
+        <!-- Bookings ordered by date -->
         {% for booking in bookings|sort(attribute=('date')) %}
-            <!-- Delete Booking Modal -->
-            <div id="delete-booking-modal" class="modal">
-                <div class="modal-content">
-                    <h6>Are you sure you want to delete your booking?</h6>
-                </div>
-                <div class="modal-footer">
-                    <a href="{{ url_for('delete_booking', booking_id=booking._id)}}"><i
-                            class="fas btn-small red fa-trash-alt" title="Delete"></i></a>
-                    <a href="#!" class="modal-close"><i class="fas btn-small fa-times-circle" title="Cancel"></i></a>
-                </div>
+        <!-- Delete Booking Modal -->
+        <div id="delete-booking-modal" class="modal">
+            <div class="modal-content">
+                <h6>Are you sure you want to delete your booking?</h6>
             </div>
-            {% if session.user|lower == booking.created_by|lower %}
-            <div class="card small col l4 m6 s12">
-                <div class="card-content">
-                    <a href="#delete-booking-modal" class="modal-trigger"><i class="fas fa-trash-alt right"
-                            title="Delete"></i></a>
-                    <a href="{{ url_for('edit_booking', booking_id=booking._id)}}"><i class="fas fa-edit right"
-                            title="Edit"></i></a>
-                    <h6>{{ booking.contact_name }}</h6>
-                    <div class="divider"></div>
-                    <p class="scroll">{{ booking.additional_info }}</p>
-                </div>
-                <div class="card-tabs">
-                    <ul class="tabs tabs-fixed-width center-align">
-                        <li class="tab">Date</li>
-                        <li class="tab">Studio</li>
-                        <li class="tab">Slot</li>
-                    </ul>
-                </div>
-                <div class="card-content details">
-                    <ul class="tabs tabs-fixed-width grey lighten-4">
-                        {% if booking.date < today %}
-                            <li class="tab out-of-date">{{ booking.date.strftime('%d %b %Y') }}</li>
-                        {% else %}
-                            <li class="tab">{{ booking.date.strftime('%d %b %Y') }}</li>
-                        {% endif %}
-                        <li class="tab">{{ booking.studio }}</li>
-                        <li class="tab">{{ booking.slot }}</li>
-                    </ul>
-                </div>
+            <div class="modal-footer">
+                <a href="{{ url_for('delete_booking', booking_id=booking._id)}}"><i
+                        class="fas btn-small red fa-trash-alt" title="Delete"></i></a>
+                <a href="#!" class="modal-close"><i class="fas btn-small fa-times-circle" title="Cancel"></i></a>
             </div>
-            {% endif %}
+        </div>
+        <!-- Only displays bookings made by the current user -->
+        {% if session.user|lower == booking.created_by|lower %}
+        <div class="card small col l4 m6 s12">
+            <div class="card-content">
+                <a href="#delete-booking-modal" class="modal-trigger"><i class="fas fa-trash-alt right"
+                        title="Delete"></i></a>
+                <a href="{{ url_for('edit_booking', booking_id=booking._id)}}"><i class="fas fa-edit right"
+                        title="Edit"></i></a>
+                <h6>{{ booking.contact_name }}</h6>
+                <div class="divider"></div>
+                <p class="scroll">{{ booking.additional_info }}</p>
+            </div>
+            <div class="card-tabs">
+                <ul class="tabs tabs-fixed-width center-align">
+                    <li class="tab">Date</li>
+                    <li class="tab">Studio</li>
+                    <li class="tab">Slot</li>
+                </ul>
+            </div>
+            <div class="card-content details">
+                <ul class="tabs tabs-fixed-width grey lighten-4">
+                    <!-- Makes the booking date red if it's out of date -->
+                    {% if booking.date < today %}
+                    <li class="tab out-of-date">{{ booking.date.strftime('%d %b %Y') }}</li>
+                    {% else %}
+                    <li class="tab">{{ booking.date.strftime('%d %b %Y') }}</li>
+                    {% endif %}
+                    <li class="tab">{{ booking.studio }}</li>
+                    <li class="tab">{{ booking.slot }}</li>
+                </ul>
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
 {% else %}
-    <h3 class="red-text text-darken-4 center align">No Active Bookings</h3>
+<!-- Error title if there are no active bookings -->
+<h3 class="red-text text-darken-4 center align">No Active Bookings</h3>
 {% endif %}
 {% endblock %}

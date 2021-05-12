@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- Edit Bookings Page -->
+
 <h4 class="center align">Edit Booking</h4>
 <div class="divider"></div>
 
 <div class="container">
     <div class="row card-panel grey lighten-5">
         <form class="col s12" method="POST" action="{{ url_for('edit_booking', booking_id=booking._id) }}">
-            <!-- Post Title -->
+            <!-- Booking Date -->
             <div class="row">
                 <div class="input-field col s12 m4">
                     <input type="text" class="datepicker" id="booking-date" name="booking-date" value="{{ booking.date.strftime('%d %b %Y') }}">
@@ -15,6 +17,7 @@
                 <!-- Studio Option -->
                 <div class="input-field col s12 m4">
                     <select class="icons" id="studio" name="studio" >
+                        <!-- Jinja used to add 'selected' based on DB data -->
                         <option value="" disabled selected>Studio</option>
                         <option value="1" {% if booking.studio == "1" %}selected{% endif %}>Studio 1 (£15ph)</option>
                         <option value="2" {% if booking.studio == "2" %}selected{% endif %}>Studio 2 (£10ph)</option>
@@ -24,6 +27,7 @@
                 <!-- Time Slot -->
                 <div class="input-field col s12 m4">
                     <select class="icons" id="time-slot" name="time-slot">
+                        <!-- Jinja used to add 'selected' based on DB data -->
                         <option value="" disabled selected>Time</option>
                         <option value="Morning" {% if booking.slot == "Morning" %}selected{% endif %}>Morning 10:00 - 14:00</option>
                         <option value="Afternoon" {% if booking.slot == "Afternoon" %}selected{% endif %}>Afternoon 14:00 - 18:00</option>

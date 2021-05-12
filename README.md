@@ -369,7 +369,8 @@ I decided to add a user icon to the navbar with a dropdown once the user is logg
 # Future Features
 
 The site is definitely functional however I feel that a dynamic calendar system would be advantageous and also having the ability to pay for bookings online would be ideal. I would also love to be able to implement a feature where an invoice is automatically generated and sent after a booking.  
-There is also a system that I've seen used where you can send the user a code, which can then be used to unlock the studio door which would simplify the setup even more.  
+There is also a system that I've seen used where you can send the user a code, which can then be used to unlock the studio door which would simplify the setup even more.  One thing I would definitely like to add is another email package eg. Flask-Mail to handle confirmation emails instead of email.js. 
+This would be ideal for the current registration form that adds the new user to the database.  So when someone activates the switch to receive the newsletter Flask-Mail would handle the confirmation email.
 
 * ## Known Issues
 
@@ -433,7 +434,7 @@ All buttons display correctly | ❌ | ❌ | ❌ | ❌
 Check to see if navbar collapses on smaller devices | ✅ | ✅ | ✅ | ✅ 
 User dropdown link appears in navbar when logged in | ✅ | ✅ | ✅ | ✅ 
 Hero Img quotes display and fade smoothly | ✅ | ✅ | ✅ | ✅ 
-Contact link scrolls to relevant position | ✅ | ✅ | ✅ | ✅  
+Nav links scrolls to relevant position | ✅ | ✅ | ✅ | ✅  
 The contact form displays correct predicted inputs | ✅ | ✅ | ✅ | ✅ 
 Contact form displays required fields if not filled in | ✅ | ✅ | ✅ | ✅ 
 Contact form does not submit if fields aren't filled in | ✅ | ✅ | ✅ | ✅ 
@@ -442,13 +443,13 @@ Message is sent to developer email address | ✅ | ✅ | ✅ | ✅
 Auto-reply is sent to user | ✅ | ✅ | ✅ | ✅ 
 Social links are visible and sized appropriately | ✅ | ✅ | ✅ | ✅ 
 Footer is visible and sized appropriately | ✅ | ✅ | ✅ | ✅ 
-Subscribe displays correct flash messages and adds email to db | ✅ | ✅ | ✅ | ✅
 Images on rehearsal studio page loads and resized for smaller devices | ✅ | ✅ | ✅ | ✅ 
+All buttons link to correct pages on studios cards | ✅ | ✅ | ✅ | ✅ 
 Notice board displays correctly | ✅ | ✅ | ✅ | ✅
 Edit and delete buttons display for session user posts | ✅ | ✅ | ✅ | ✅
 Pagination increases after 6 posts | ✅ | ✅ | ✅ | ✅
 All relevant flash messages/modals display for edit and delete posts | ✅ | ✅ | ✅ | ✅
-The mail icon input the correct user email | ✅ | ✅ | ✅ | ✅
+The mail icon inputs the correct user email | ✅ | ✅ | ✅ | ✅
 FAQ page collapsible loads and resizes for smaller devices | ✅ | ✅ | ✅ | ✅
 Bookings page forms display correctly | ✅ | ✅ | ✅ | ✅
 Availablity checker works correctly and flashes correct messages | ✅ | ✅ | ✅ | ✅
@@ -473,6 +474,10 @@ Check all user stories implemented | ✅ | ✅ | ✅ | ✅
 There was an error during testing where the "Make a Booking" button on the rehearsal studios page had a grey to white gradient instead of the teal green. This was fixed by adding the following css:
 
 ![Button Display Error](documentation/img/button-error.png)
+
+* Defensive Programming
+
+All routes that should be unaccessible to users that aren't logged in have had defensive programming additions (in commits from 11/05/21).  These use a simple try and except block to redirect the user to the login page if they aren't signed in and also flashes a message.
 
 ### Known errors
 

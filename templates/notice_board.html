@@ -3,6 +3,8 @@
 {% block nav_nb_mobile %}active{% endblock %}
 {% block content %}
 
+<!-- Notice Board page -->
+
 <div class="container">
     <div class="row">
         <div class="col s12 m10 offset-m1">
@@ -10,6 +12,7 @@
             <div class="divider"></div>
 
             <h5 class="center-align">Welcome to our community Notice Board!</h5>
+            <!-- Notice Board blurb that changes if logged in -->
             {% if session.user %}
             <p class="center-align">
                 Here you will find all the latest posts from our extended community.
@@ -34,12 +37,10 @@
         </div>
     </div>
 </div>
+
 {% if posts|length > 0 %}
 
-
-
 <div class="container">
-
     <ul class="collection">
         {% for post in posts %}
 
@@ -54,7 +55,7 @@
                 <a href="#!" class="modal-close"><i class="fas btn-small fa-times-circle" title="Cancel"></i></a>
             </div>
         </div>
-
+        <!-- Post collection loop -->
         <li class="collection-item avatar">
             {% if post.category == 'for-sale' %}
             <i class="fas fa-pound-sign circle"></i>
@@ -81,19 +82,22 @@
         </li>
         {% endfor %}
     </ul>
+    <!-- Red error title if there are no posts -->
     {% else %}
     <h5 class="red-text text-darken-4 center align">No Posts Found</h5>
 </div>
 
 {% endif %}
 
+<!-- Pagination -->
 <div class="container">
     <div class="row center-align">
         <div class="pagination">
             <a href="{{ url_for('prev_page', current_page=current_page, _anchor='notice-board') }}"><i
                     class="fas fa-chevron-left z-depth-1"></i></a>
             <p>{{ current_page }} of {{ number_of_pages }}</p>
-            <a href="{{ url_for('next_page', current_page=current_page, number_of_pages=number_of_pages, _anchor='notice-board') }}"><i
+            <a
+                href="{{ url_for('next_page', current_page=current_page, number_of_pages=number_of_pages, _anchor='notice-board') }}"><i
                     class="fas fa-chevron-right z-depth-1"></i></a>
         </div>
     </div>

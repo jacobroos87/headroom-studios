@@ -27,10 +27,10 @@ $(document).ready(function () {
     // Left and Right on click functions to replace materialize dot selector
 
     $('.left-arrow').on('click', function () {
-        $('.slider').slider('prev')
+        $('.slider').slider('prev');
     });
     $('.right-arrow').on('click', function () {
-        $('.slider').slider('next')
+        $('.slider').slider('next');
     });
 
     // Added required to the select dropdowns on the bookings page

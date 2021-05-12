@@ -94,18 +94,17 @@
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 </div>
                 <ul class="hide-on-med-and-down">
-                    <li class="{% block nav_home %}{% endblock %}"><a href="{{ url_for('home', _anchor='home') }}"
-                            class="scroll">Home</a></li>
+                    <li class="{% block nav_home %}{% endblock %}"><a
+                            href="{{ url_for('home', _anchor='home') }}">Home</a></li>
                     <li class="{% block nav_rs %}{% endblock %}"><a
-                            href="{{ url_for('rehearsal_studios', _anchor='rehearsal-studios') }}"
-                            class="scroll">Rehearsal
+                            href="{{ url_for('rehearsal_studios', _anchor='rehearsal-studios') }}">Rehearsal
                             Studios</a></li>
                     <li class="{% block nav_nb %}{% endblock %}"><a
-                            href="{{ url_for('notice_board', _anchor='notice-board') }}" class="scroll">Notice
+                            href="{{ url_for('notice_board', _anchor='notice-board') }}">Notice
                             Board</a></li>
-                    <li class="{% block nav_faq %}{% endblock %}"><a href="{{ url_for('faq', _anchor='faq') }}"
-                            class="scroll">FAQ</a></li>
-                    <li><a href="{{ url_for('home', _anchor='contact_form') }}" class="scroll">Contact</a></li>
+                    <li class="{% block nav_faq %}{% endblock %}"><a href="{{ url_for('faq', _anchor='faq') }}">FAQ</a>
+                    </li>
+                    <li><a href="{{ url_for('home', _anchor='contact_form') }}">Contact</a></li>
                     {% if session.user %}
                     <!-- Changes navbar to have a user dropdown with added links -->
                     <li class="{% block nav_dropdown %}{% endblock %}"><a class="dropdown-trigger" href="#!"
@@ -113,24 +112,23 @@
                                 class="fas fa-user-circle"></i></a></li>
                     <ul id="dropdown1" class="dropdown-content center-align">
                         <li class="{% block nav_bookings %}{% endblock %}"><a
-                                href="{{ url_for('bookings', _anchor='bookings') }}" class="scroll">Bookings</a></li>
+                                href="{{ url_for('bookings', _anchor='bookings') }}">Bookings</a></li>
                         <li class="{% block nav_profile %}{% endblock %}"><a
                                 href="{{ url_for('profile', username=session['user'], today=today, _anchor='profile') }}"
                                 class="scroll">Profile</a></li>
                         <li class="{% block nav_ap %}{% endblock %}"><a
-                                href="{{ url_for('add_post', _anchor='add-post') }}" class="scroll">Add Post</a>
+                                href="{{ url_for('add_post', _anchor='add-post') }}">Add Post</a>
                         </li>
                         {% if session.user|lower == "admin"|lower %}
                         <!-- Makes the Admin page available for the admin user -->
                         <li class="{% block nav_mb %}{% endblock %}"><a
-                                href="{{ url_for('admin', username=session['user'], today=today, _anchor='admin') }}"
-                                class="scroll">Admin</a>
+                                href="{{ url_for('admin', username=session['user'], today=today, _anchor='admin') }}">Admin</a>
                         </li>
                         {% endif %}
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}
                         <li class="{% block nav_login %}{% endblock %}"><a
-                                href="{{ url_for('login', today=today, _anchor='login') }}" class="scroll">Log In</a>
+                                href="{{ url_for('login', today=today, _anchor='login') }}">Log In</a>
                         </li>
                         <li><a class="modal-trigger" href="#modal1">Register</a></li>
                     </ul>
@@ -161,7 +159,7 @@
                     href="{{ url_for('profile', username=session['user'], today=today, _anchor='profile') }}">Profile</a>
             </li>
             <li class="{% block nav_np_mobile %}{% endblock %}"><a
-                    href="{{ url_for('add_post', _anchor='add-post') }}">Add Post</a></li>    
+                    href="{{ url_for('add_post', _anchor='add-post') }}">Add Post</a></li>
             {% if session.user|lower == "admin"|lower %}
             <!-- Makes the Admin page available for the admin user -->
             <li class="{% block nav_mb_mobile %}{% endblock %}"><a

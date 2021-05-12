@@ -10,6 +10,9 @@ Headroom Studios is a site built for musicians/creatives with an added sense of 
 
 A live version of the site is available [HERE](https://headroom-studios.herokuapp.com/).
 
+* ### Access to Admin page 
+    * #### username = admin
+    * #### password = admin
 
 # Table of Contents
 
@@ -17,6 +20,7 @@ A live version of the site is available [HERE](https://headroom-studios.herokuap
     * [Objectives](#objectives)
     * [User Stories](#user-stories)
     * [Wireframes](#wireframes)
+    * [Final Project Differences](#final-project-differences)
     * [Responsive Design](#responsive-design)
 2. [Content Styling](#content-styling)
 3. [Features and Structure](#features-and-structure)
@@ -62,29 +66,29 @@ A live version of the site is available [HERE](https://headroom-studios.herokuap
 
 ## Objectives 
 
-* The site should attract the attention of regional musicians looking for a place to rehearse
-* The facilities and ethos needs to be clear and inviting
-* The process to make a booking should be simple and users should be able to check availability
-* The code needs to be scalable and allow for expansion if the business grows
-* Adding a post to the cummunity notice board should be simple and editable
-* The user needs to come away from the site knowing what's on offer and that there is a community spirit
-* The user needs to be able to sign up to a mailing list and also to contact direct for queries
-* Social links and business address needs to be displayed on all pages
+* The site should attract the attention of regional musicians looking for a place to rehearse.
+* The facilities and ethos needs to be clear and inviting.
+* The process to make a booking should be simple and users should be able to check availability.
+* The code needs to be scalable and allow for expansion if the business grows.
+* Adding a post to the cummunity notice board should be simple and editable.
+* The user needs to come away from the site knowing what's on offer and that there is a community spirit.
+* The user needs to be able to sign up to a mailing list and also to contact direct for queries.
+* Social links need to be displayed on all pages.
 <a name="userstories"></a>
 
 ## User Stories 
 
-- As a visitor to the site I want to be able to clearly see the purpose of the site and services offered
-- As a visitor I'd like the navigation to be simple and easy to follow
-- As a visitor I want the site to be visually appealing and have a relevant colour scheme 
-- As a visitor I want to be able to see photos of the rehearsal facilities and know their cost per hour
-- As a visitor I would like to be able to connect with the local community
-- As a visitor I would like to be able to make bookings and check availability
-- As a visitor I want to be able to edit my booking 
-- As a visitor I want to be able to post on the notice board and edit that post if required
-- As a visitor I want to have feedback so I know wether my booking or post has been successful
-- As a returning visitor I want to be able to see my active bookings and their relative information
-- As a returning visitor I want to be able to update or remove my post on the community notice board
+- As a visitor to the site I want to be able to clearly see the purpose of the site and services offered.
+- As a visitor I'd like the navigation to be simple and easy to follow.
+- As a visitor I want the site to be visually appealing and have a relevant colour scheme.
+- As a visitor I want to be able to see photos of the rehearsal facilities and know their cost per hour.
+- As a visitor I would like to be able to connect with the local community.
+- As a visitor I would like to be able to make bookings and check availability.
+- As a visitor I want to be able to edit or delete my booking.
+- As a visitor I want to be able to post on the notice board and edit or delete that post if required.
+- As a visitor I want to have feedback so I know wether my booking, post or contact form submission has been successful.
+- As a returning visitor I want to be able to see my active bookings and their relative information.
+- As a returning visitor I want to be able to update or remove my post on the community notice board.
 
 <a name="wireframes"></a>
 
@@ -131,21 +135,32 @@ Log out is a simple route to remove the user using session.pop("user").  This th
 
 [Back to top](#table-of-contents)
 
+## Final Project differences
+
+* Footer
+    * The final project has a more minimal layout with only the social links and copyright included.  This was to improve UX and the subscribe has been added as a selector when registering and the location information has been added to the FAQ page.
+
+* Rehearsal Studios
+    * The final project has a set of buttons for each card that allows the user to book or view more images.  This improved the UX especially for smaller devices so the user wouldn't have to scroll to the end of the cards each time to make a booking.
+
+* Registration modal
+    * There is only a small change from the original wireframe with the addition of the sign-up switch.
+
 ## Responsive Design
 
 Media queries have been added to ensure the site works well on smaller devices.  Materialize responsive classes were also used for parts of the layout.
 
 * Home Page
 
-The home page has a 3 column layout for 2 sections that stack for smaller devices.  The deign stays the same for tablets but collapses the navbar to a hamburger menu.
+The home page has a 3 sections. The mid section has a 3 column layout that stacks for smaller devices.  The deign stays the same for tablets but collapses the navbar to a hamburger menu.
 
 * Rehearsal Studios
 
-The rehearsal studio page also keeps the 3 column layout and has the same principle applied for continuity.  Smaller devices stack and for tablet the design stays the same but changer the navbar to a hamburger menu.
+The rehearsal studio page keeps the 3 column layout and has the same principle applied for continuity.  Smaller devices stack and for tablets, the design stays the same but the navbar changes to a hamburger menu.
 
 * Notice Board
 
-The notice board has responsive sizing so adapts to the viewport.  The posts in the notice board stay stacked with the only design change for smaller devices being the footer elements stacking which is the same for all pages.
+The notice board has responsive sizing so adapts to the viewport.  The posts in the notice board stay stacked for all devices.
 
 * FAQ
 
@@ -153,7 +168,7 @@ The FAQ page is based around Materialize collapsible popout elements.  The desig
 
 * Contact
 
-The form inside this section changes depending on the device and the text is also scaled down.
+The form inside this section changes depending on the device and the text is also scaled down. For mobile devices the first name and last name inputs stack.
 
 * Log In
 
@@ -173,7 +188,7 @@ The user profile page has a simle username title followed by active bookings.  F
 
 * New Post
 
-The form inside this section is in a responsive container and scales for smaller devices.
+The form inside this section is in a responsive container and scales for smaller devices. All inputs stack for mobile devices.
 
 * Admin (Admin only)
 
@@ -201,7 +216,7 @@ The fonts all remain black and white for contrast and to improve readability.
 
 ## Fonts
 
-The fonts that were used on the site are "**Bungee**" and "**Roboto**".  The style of the Bungee font was inline with the slightly darker vibe and worked well as a standalone Logo font.  Roboto is a modern easy to read font that was complimentary to the bungee logo font.
+The fonts that were used on the site are "**Bungee**" and "**Roboto**".  The style of the Bungee font was inline with the slightly darker vibe and worked well as a standalone Logo font.  Roboto is a modern, easy to read font that was complimentary to the bungee logo font.
 
 [Back to top](#table-of-contents)
 
@@ -232,94 +247,94 @@ I decided to add a user icon to the navbar with a dropdown once the user is logg
 
 ## Navbar
 
-* The Navbar has a Navbar brand for the website logo and 7 addition links - Home, Rehearsal Studios, Notice Board, FAQ, Contact, Log In & Register
+* The Navbar has a Navbar brand for the website logo and 7 addition links - Home, Rehearsal Studios, Notice Board, FAQ, Contact, Log In & Register.
 * The Register tab links to a modal instead of a separate page.
-* When logged in a user icon appears instead of log in and register. These links also become available: Bookings, Profile, Add Post, Manage Bookings (admin) & Log Out
-* All the links have a hover effect and an active state when selected
-* Materialize was used to create a collapsible dropdown (hamburger menu) for smaller devices that comes in from the right side of the screen
+* When logged in a user icon appears instead of log in and register. These links also become available: Bookings, Profile, Add Post, Manage Bookings (admin) & Log Out.
+* All the links have a hover effect and an active state when selected.
+* Materialize was used to create a collapsible dropdown (hamburger menu) for smaller devices that comes in from the right side of the screen.
 
 ## Home
 
-* The Home page/landing page has a hero image with a rotation of customer quotes. This functionlity was created using an interval function in JS
-* Further down the page you have a small blurb about the business and what services are offered
-* Underneath this there is a full width div with 6 icons highlighting the key points that make headroom studios an ideal choice for creatives
+* The Home page/landing page has a hero image with a rotation of customer quotes. This functionlity was created using an interval function in JS.
+* Further down the page you have a small blurb about the business and what services are offered.
+* Underneath this there is a full width div with 6 icons highlighting the key points that make headroom studios an ideal choice for creatives.
 * Below this is the contact form that has a success/error modal that is displayed once the form is submitted.  Using emailJS the user is then emailed with a confirmation and the admin is sent the message that was submitted.
 
 ## Reheasal Rooms
 
-* The page opens with a small blurb telling the user how the booking system works and includes relevant links to the sections mentioned
+* The page opens with a small blurb telling the user how the booking system works and includes relevant links to the sections mentioned.  This paragraph changes if the user is logged in.
 * Below this section I added 3 cards for the rehearsal studios with Materialize
-* Each card has a small blurb about the room and its 'vibe' and includes a link to view more images
+* Each card has a small blurb about the room and its 'vibe' and includes a link to view more images and a booking button that links to the bookings page if logged in and login page if not.
 * Once the user clicks on the 'MORE IMAGES' link a modal pops up allowing the user to scroll through images of that studio
 * The sizing of the images adjust depending on the device and I altered the original Materialize functionality by including prev and next arrow instead of the built in circle icons.  I decided on this due to there being quite a few images and with all the dot icons it was a bit much to navigate especially on smaller devices.
 
 ## Notice Board
 
-* This section is made up of set of collections that are looped through and displayed with jinja/python
-* The content is initially submitted through an active user which is stored on mongoDB and then brought back in with python/jinja
-* There is also an if/else loop to dynamically add the category icon to the post
-* The user that submits the post has to provide a contact email address which is assigned to the mail icon using jinja
-* The username is also posted underneath the post title with an exclamation mark if the post was labelled as urgent
-* Underneath this is a date stamp that was created using the datetime package in python and formatted using the strftime() function
-* There is also pagination added with a maximum amount of posts set to 6 items before the next pages are made active
+* This section is made up of set of collections that are looped through and displayed with jinja/python.
+* The content is initially submitted through an active user which is stored on mongoDB and then brought back in with python/jinja.
+* There is also an if/else loop to dynamically add the category icon to the post.
+* The user that submits the post has to provide a contact email address which is assigned to the mail icon using jinja.
+* The username is also posted underneath the post title with an exclamation mark if the post was labelled as urgent.
+* Underneath this is a date stamp that was created using the datetime package in python and formatted using the strftime() function.
+* There is also pagination added with a maximum amount of posts set to 6 items before the next pages are made active.
 
 ## FAQ
 
-* The code for this page was kept simple using a Materialize collection and a set of typical questions that might be asked by users of the studio
-* In terms of its design it's simple and to the point with a question answer layout
+* The code for this page was kept simple using a Materialize collection and a set of typical questions that might be asked by users of the studio.
+* In terms of its design it's simple and to the point with a question answer layout.
 * The idea behind adding the page is purely for extra information that would be essential for a real life business!
 
 ## Contact
 
-* The contact section contains a Materialize form with a simple opening blurb and contains 4 sections
-* All sections are labelled as required and show their relevant input errors and suggestions
-* A modal was added with JS and displays either a success or error message depending on the submission response
-* EmailJS was used to create an email template and also an auto-reply
+* The contact section contains a Materialize form with a simple opening blurb and contains 4 sections.
+* All sections are labelled as required and show their relevant input errors and suggestions.
+* A modal was added with JS and displays either a success or error message depending on the submission response.
+* EmailJS was used to create an email template and also an auto-reply.
 
 ## Log In
 
 * The log in page has a simple 2 section form asking for a username and password
-* Python is used to then check on the mongo database if the user exists.  If the user exists they're welcomed and redirected to their profile.  If not then an error is flashed and the user is redirected back to the login page
+* Python is used to then check on the mongo database if the user exists.  If the user exists they're welcomed and redirected to their profile.  If not then an error is flashed and the user is redirected back to the login page.
 
 ## Register
 
 * I decided to go for a modal for the registration to mix up the UI with something different to another page
-* The modal has a 3 part form asking for a username, email and password
-* This data is then stored on mongo and called upon as the 'session user' 
-* The database is also checked initially on the registration and an error message is flashed if the user exists and success if the registration was a success with the user being redirected to the home page
+* The modal is a 4 part form asking for a username, email, password and a switch to select whether the user wants subscribe to the business newsletter.
+* This data is then stored on mongo and called upon as the 'session user'.
+* The database is also checked initially on registration and an error is flashed if the user already exists, and a success message if the registration was confirmed. The user is then redirected to the home page.
 
 ## Bookings
 
-* The bookings page has 2 main sections: Firstly to check availability and then to make a booking
-* The section that checks availability asks the user to input a date and time. The database is then referenced using python and flashes a message saying which studio(s) are available on that date and time
-* This allows for the user to make a quick check before moving ahead an filling in the main booking form
-* There are required restrictions on the inputs to ensure they're filled in correctly. This functionality needed to be added seperately for the Materialize select dropdowns using JS
-* The booking form then asks for date, studio, time, artist/contact name and allows a message for any special requests
-* This information is stored on mongoDB and is then displayed using jinja on the user profile and also the admin page for the admin user
-* Only bookings made by that user will be displayed on their profile.  I also added a sort function into the jijna loop to display the bookings in date order
-* Success and error flash messages are also set up for booking confirmation
+* The bookings page has 2 main sections: Firstly to check availability and then to make a booking.
+* The section that checks availability asks the user to input a date and time. The database is then referenced using python and flashes a message saying which studio(s) are available on that date and time.
+* This allows for the user to make a quick check before moving ahead an filling in the main booking form.
+* There are required restrictions on the inputs to ensure they're filled in correctly. This functionality needed to be added seperately for the Materialize select dropdowns using JS.
+* The booking form then asks for date, studio, time, artist/contact name and allows a message for any special requests.
+* This information is stored on mongoDB and is then displayed using jinja on the user profile and also the admin page for the admin user.
+* Only bookings made by that user will be displayed on their profile.  I also added a sort function into the jijna loop to display the bookings in date order.
+* Success and error flash messages are also set up for booking confirmation.
 
 ## Profile
 
-* This is a simple page where the user can reference their active bookings and make changes or a cancellation
-* The booking information is displayed in a card and includes en edit and delete icon 
-* If the user wants to edit a booking the user gets transferred to a form screen that has the date and contact prefilled
-* If the user tries to change to a date already booked an error is flashed and they're redirected to the bookings page where they can check availability
-* Otherwise if the change is a success then the booking is updated and the changes are shown on the user profile
-* If a user wants to delete a booking they simply press the delete icon which loads a confirmation modal. If the user agrees to delete then the booking is removed from the database and a confirmation flash message pops up
+* This is a simple page where the user can reference their active bookings and make changes or a cancellation.
+* The booking information is displayed in a card and includes en edit and delete icon.
+* If the user wants to edit a booking the user gets transferred to a form screen that has been prefilled with the current booking data.
+* If the user tries to change to a date already booked an error is flashed and they're redirected to the bookings page where they can check availability.
+* Otherwise if the change is a success then the booking is updated and the changes are shown on the user profile.
+* If a user wants to delete a booking they simply press the delete icon which loads a confirmation modal. If the user agrees to delete then the booking is removed from the database and a confirmation flash message pops up.
 
 ## New Post
 
-* The new post page takes the user to a form that allows the user to fill in a category, title, message, email and if the post is urgent
-* This information is stored on mongoDB and then looped through using jinja on the notice board page
-* Once the post has been added, the user gets a confirmation flash message and the post is listed on the notice board
-* This post can then be edited or deleted on the notice board page.  The delete button loads a confirmation modal and if the user chooses to delete the post it gets removed from the notice board and the database.  The edit post works in the same was as the edit booking function where the user gets taken to a form that has a some elements prefilled and then the changes are updated using the .update() function
+* The new post page takes the user to a form that allows the user to fill in a category, title, message, email and if the post is urgent.
+* This information is stored on mongoDB and then looped through using jinja on the notice board page.
+* Once the post has been added, the user gets a confirmation flash message and the post is listed on the notice board.
+* This post can then be edited or deleted on the notice board page.  The delete button loads a confirmation modal and if the user chooses to delete the post it gets removed from the notice board and the database.  The edit post works in the same way as the edit booking function where the user gets taken to a form that has been prefilled and then the changes are updated using the .update() function.
 
 ## Admin
 
-* This page is only available for the admin user
-* It works in a similar way to the profile page but the jijna loop shows all the bookings currently in the database in date order
-* The admin isn't able to edit the bookings however does have the ability to delete the bookings for potential cancellations made not via the website (hypothetically)
+* This page is only available for the admin user, which was done using jinja by adding the link insdie an if statement: {% if session.user|lower == "admin"|lower %}.
+* It works in a similar way to the profile page but the jijna loop shows all the bookings currently in the database in date order.
+* The admin isn't able to edit the bookings however does have the ability to delete the bookings for potential cancellations made not via the website (hypothetically), or if bookings are out of date.
 
 ## Log Out
 
@@ -327,8 +342,7 @@ I decided to add a user icon to the navbar with a dropdown once the user is logg
 
 ## Footer
 
-* The footer includes a sign-up email form, address and social media links
-* The sign up form puts the user email into a subscribers collection and flashes a success message.  This database can then be used by the admin for marketing purposes
+* The footer includes a set of social links that have a target="_blank" added.
 * All social links have hover effects and currently link to the root websites but would be linked to the relevant pages were this a functioning business
 
 [Back to top](#table-of-contents)
@@ -363,14 +377,15 @@ I decided to add a user icon to the navbar with a dropdown once the user is logg
 2. username - string
 3. email - string
 4. password - string (hashed password)
+5. subscribe - string (yes/no)
 
 [Back to top](#table-of-contents)
 
 # Future Features
 
-The site is definitely functional however I feel that a dynamic calendar system would be advantageous and also having the ability to pay for bookings online would be ideal. I would also love to be able to implement a feature where an invoice is automatically generated and sent after a booking.  
+The site is definitely functional however I feel that a dynamic calendar system would be advantageous and also having the ability to pay for bookings online would be ideal. I would also love to be able to implement a feature where an invoice is automatically generated and sent after a booking is made.  
 There is also a system that I've seen used where you can send the user a code, which can then be used to unlock the studio door which would simplify the setup even more.  One thing I would definitely like to add is another email package eg. Flask-Mail to handle confirmation emails instead of email.js. 
-This would be ideal for the current registration form that adds the new user to the database.  So when someone activates the switch to receive the newsletter Flask-Mail would handle the confirmation email.
+This would be ideal for the current registration form that adds the new user to the database.  So when someone activates the switch to receive the newsletter, Flask-Mail would handle the confirmation email.
 
 * ## Known Issues
 
@@ -434,7 +449,7 @@ All buttons display correctly | ❌ | ❌ | ❌ | ❌
 Check to see if navbar collapses on smaller devices | ✅ | ✅ | ✅ | ✅ 
 User dropdown link appears in navbar when logged in | ✅ | ✅ | ✅ | ✅ 
 Hero Img quotes display and fade smoothly | ✅ | ✅ | ✅ | ✅ 
-Nav links scrolls to relevant position | ✅ | ✅ | ✅ | ✅  
+Nav links scroll to relevant position | ✅ | ✅ | ✅ | ✅  
 The contact form displays correct predicted inputs | ✅ | ✅ | ✅ | ✅ 
 Contact form displays required fields if not filled in | ✅ | ✅ | ✅ | ✅ 
 Contact form does not submit if fields aren't filled in | ✅ | ✅ | ✅ | ✅ 
@@ -477,7 +492,11 @@ There was an error during testing where the "Make a Booking" button on the rehea
 
 * Defensive Programming
 
-All routes that should be unaccessible to users that aren't logged in have had defensive programming additions (in commits from 11/05/21).  These use a simple try and except block to redirect the user to the login page if they aren't signed in and also flashes a message.
+All routes that should be unaccessible to users that aren't logged in have had defensive programming additions (in commits from 11/05/21).  These use a simple try and except block to redirect the user to the login page if they aren't signed in and also flashes a message. 
+
+The project also has a 404 error page which is handled using an errorhandler(404).  The image below is the content for the main block.
+
+![404 Error](documentation/img/404-error.png)
 
 ### Known errors
 
@@ -541,19 +560,19 @@ The JS validation returned some warnings due to the use of ES6 syntax which migh
 * Once registered I have a bookings tab added to my user menu where I can check availability and add a booking of my own
 * The forms give me relevant feedback and the availability checker speeds up the process if I want to check a few dates that work with my colleagues  
 
-#### As a visitor I want to be able to edit my booking.
+#### As a visitor I want to be able to edit or delete my booking.
 
 * If I want to make a change to my booking I can do so on my profile page
 * There are two clear icons to either delete my booking or do edit it
 * The edit page has some of the key information pre-filled which speeds up the process 
 * I also get feedback for any dates and times that clash with existing bookings
 
-#### As a visitor I want to be able to post on the notice board and edit that post if required.
+#### As a visitor I want to be able to post on the notice board and edit or delete that post if required.
 
 * Once logged in I'm able to add my own post to the community notice board
 * I can also edit or delete my posts on the notice board page with the added buttons that become visible next to my post
 
-#### As a visitor I want to have feedback so I know wether my booking or post has been successful.
+#### As a visitor I want to have feedback so I know wether my booking, post or contact form submission has been successful.
 
 * When making a bookings or adding a post I get a flash message once either my booking or post has been successful or not
 * When a booking wasn't possible I'm told why and redirected to the bookings page to make changes 
@@ -577,7 +596,11 @@ When using the site my mentor mentioned that the original font was a little hard
 
 ### A Fellow Code Institue Student
 
-The site was thouroughly tested by a fellow CI student and some valueble feedback given which was implemented to improve the UX.  
+The site was thouroughly tested by a fellow CI student and some valueble feedback given which was implemented to improve the UX. 
+
+
+* *UX Changes made through feedback from my mentor and fellow student were implemented in commits from 11/05/21.*
+
 
 [Back to top](#table-of-contents)
 
@@ -617,7 +640,7 @@ The site was thouroughly tested by a fellow CI student and some valueble feedbac
 * Login to Github and select the project repository.
 * Click on the Gitpod dropdown and download the files as a ZIP.
 * Ensure that Git software is installed locally.
-* Expand the ZIP file and double click the index.html file
+* Expand the ZIP file and double click the index.html file.
 
 The project can also be cloned within the terminal using git clone. For more information on using git clone you can click [HERE](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 
@@ -627,16 +650,16 @@ The project can also be cloned within the terminal using git clone. For more inf
 
 ## Content       
 
-All content on the site was designed and written by myself 
+All content on the site was designed and written by myself.
 
 ## Media
 
 The Hero img was sourced from [Shutterstock](www.shutterstock.com). 
 General search terms were music studio & rehearsal space.
-The files were downloaded as high resolution JPEG files and then resized for their various applications 
+The files were downloaded as high resolution JPEG files and then resized for their various applications.
 
 The studio images were provided by a friend who runs a rehearsal studio [Glasshouse Studios](http://glasshousestudios.org/).
-These files were downloaded as JPEG files directly from the wesbite and then resized for their various applications 
+These files were downloaded as JPEG files directly from the wesbite and then resized for their various applications.
 
 ## Acknowledgements
 

@@ -136,7 +136,12 @@ def logout():
 @app.route("/bookings")
 # This function renders the bookings page
 def bookings():
-    return render_template("bookings.html")
+    try:
+        if session["user"]:
+            return render_template("bookings.html")
+    except KeyError:
+        flash("You need to be logged in to make a booking")
+        return redirect(url_for("login"))
 
 
 @app.route("/check_availability", methods=["GET", "POST"])
@@ -278,25 +283,35 @@ def delete_booking(booking_id):
 # This function renders the Add Post page
 # and adds a new post to the Notice Board
 def add_post():
-    if request.method == "POST":
-        # Check to see if Is Urgent has been selected
-        is_urgent = "on" if request.form.get("is_urgent") else "off"
-        # Information requested from the input form
-        post = {
-            "post_title": request.form.get("post_title"),
-            "post_message": request.form.get("post_message"),
-            "is_urgent": is_urgent,
-            "category": request.form.get("category"),
-            "created_by": session["user"],
-            "email": request.form.get("email"),
-            "date_posted": today
-        }
-        # Add information to MongoDB
-        mongo.db.posts.insert_one(post)
-        flash("Post Successfully Added")
-        return redirect(url_for("notice_board"))
+    try:
+        if session["user"]:
+            # grab the session users username from the db
+            username = mongo.db.users.find_one(
+                {"username": session["user"]})["username"]
+            return render_template("add_post.html", username=username)
+            
+    except KeyError:
+        flash("You need to be logged in to add a post.")
+        return redirect(url_for("login"))
 
-    return render_template("add_post.html")
+    finally:
+        if request.method == "POST":
+            # Check to see if Is Urgent has been selected
+            is_urgent = "on" if request.form.get("is_urgent") else "off"
+            # Information requested from the input form
+            post = {
+                "post_title": request.form.get("post_title"),
+                "post_message": request.form.get("post_message"),
+                "is_urgent": is_urgent,
+                "category": request.form.get("category"),
+                "created_by": session["user"],
+                "email": request.form.get("email"),
+                "date_posted": today
+            }
+            # Add information to MongoDB
+            mongo.db.posts.insert_one(post)
+            flash("Post Successfully Added")
+            return redirect(url_for("notice_board"))
 
 
 @app.route("/edit_post/<post_id>", methods=["GET", "POST"])
@@ -347,14 +362,18 @@ def profile(username):
 @app.route("/admin/<username>", methods=["GET", "POST"])
 # This function renders the Admin Page
 def admin(username):
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    # All active bookings added to variable
-    bookings = list(mongo.db.bookings.find())
-    if session["user"]:
-        return render_template(
-            "admin.html", username=username,
-            bookings=bookings, today=today)
+    try:
+        if session["user"]:
+            username = mongo.db.users.find_one(
+                {"username": session["user"]})["username"]
+            # All active bookings added to variable
+            bookings = list(mongo.db.bookings.find())
+            return render_template(
+                "admin.html", username=username,
+                bookings=bookings, today=today)
+    except KeyError:
+        flash("You need to be logged in to access the Admin page")
+        return redirect(url_for("login"))
 
 
 @app.route("/register", methods=["GET", "POST"])

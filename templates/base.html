@@ -114,8 +114,8 @@
                         <li class="{% block nav_bookings %}{% endblock %}"><a
                                 href="{{ url_for('bookings', _anchor='bookings') }}">Bookings</a></li>
                         <li class="{% block nav_profile %}{% endblock %}"><a
-                                href="{{ url_for('profile', username=session['user'], today=today, _anchor='profile') }}"
-                                class="scroll">Profile</a></li>
+                                href="{{ url_for('profile', username=session['user'], today=today, _anchor='profile') }}">Profile</a>
+                        </li>
                         <li class="{% block nav_ap %}{% endblock %}"><a
                                 href="{{ url_for('add_post', _anchor='add-post') }}">Add Post</a>
                         </li>

@@ -592,7 +592,8 @@ The JS validation returned some warnings due to the use of ES6 syntax which migh
 
 ### My Mentor (Dick Vlaanderen)
 
-When using the site my mentor mentioned that the original font was a little hard to read so I changed the overall font to the PT-sans style. This change greatly imoproved the user experience while still working aesthetically with the site.
+On testing the site my mentor made suggestions to improve the contrast of the site and also made the original suggestion to create a section that allows the user to check availability before booking.
+My mentor also noticed the edit booking function was allowing the user to book an existing date which was due to an error with the way the datetime object was being checked.
 
 ### A Fellow Code Institue Student
 

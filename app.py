@@ -40,7 +40,8 @@ def rehearsal_studios():
 
 
 @app.route("/notice_board")
-# This function renders the notice_board page and implements pagniation after 6 posts
+# This function renders the notice_board page and implements
+# pagniation after 6 posts
 def notice_board():
     posts = list(mongo.db.posts.find().sort([("_id", -1)]))
     page = request.args.get("page")
@@ -256,9 +257,10 @@ def edit_booking(booking_id):
         if request.method == "POST":
             # Checks if the booking exists
             existing_booking = mongo.db.bookings.find_one(
-                {"studio": request.form.get(
-                    "studio"), "date": request.form.get(
-                    "booking-date"), "slot": request.form.get("time-slot")})
+            {"studio": request.form.get("studio"), "date": datetime.strptime(
+                request.form.get(
+                    "booking-date"), '%d %b %Y'), "slot": request.form.get(
+                        "time-slot")})
             if existing_booking:
                 flash("Update unsuccessful check availability before booking")
                 return redirect(url_for("bookings"))
